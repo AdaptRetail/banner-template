@@ -1,11 +1,11 @@
-import {AdaptData} from '@lassehaslev/banner-kickstarter';
+// import {AdaptData} from '@lassehaslev/banner-kickstarter';
 import mustache from 'mustache';
 import Swipe from 'swipejs';
 
 import { TweenLite } from 'gsap';
 
 // include style
-require( './Style/main.scss' );
+// require( './Style/main.scss' );
 
 var debugging = true;
 var debug = function( object ) {
