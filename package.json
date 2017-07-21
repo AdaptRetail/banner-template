@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=webpack.config.js",
+    "build": "banner-serve production"
+  },
+  "dependencies": {
+    "gsap": "^1.19.1",
+    "mustache": "^2.3.0",
+    "swipejs": "https://github.com/LasseHaslev/swipe.git"
+  },
+  "devDependencies": {
+    "webpack": "*",
+    "style-loader": "^0.18.2",
+    "html-loader": "^0.4.5",
+    "@lassehaslev/banner-kickstarter": "^0.3.0",
+    "babel-core": "^6.25.0",
+    "@lassehaslev/sass-asset-inliner": "^0.1.0",
+    "babel-loader": "^7.1.1",
+    "cross-env": "^5.0.1",
+    "extract-text-webpack-plugin": "^3.0.0"
+  }
+}

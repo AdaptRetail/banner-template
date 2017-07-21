@@ -1,0 +1,36 @@
+<div>
+    <div class="product">
+
+        <div class="grid is-vertical">
+            <div class="column is-filled">
+                <div>
+                    <div class="image" 
+                    style="
+                    background-image:url( {{ image }} );
+                    ">
+                        {{#intropris}}
+                        <div class="intropris">Intropris</div>
+                        {{/intropris}}
+                    </div>
+                    <div class="price__container">
+                        <div class="price">
+                            <div class="price__name">{{ name }}</div>
+                            <div class="price__now">{{ price.now }},–</div>
+                        </div>
+                        <div class="price__save">Spar {{ price.save }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-narrow">
+                <div class="vendor-logo image" style="
+                        background-image: url( {{ vendorLogo }} );
+                        padding-bottom: 8%;
+                        background-position: left;
+                    ">
+                </div>
+                <div class="descrition">{{ description }}</div>
+            </div>
+        </div>
+
+    </div>
+</div>

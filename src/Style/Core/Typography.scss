@@ -1,0 +1,9 @@
+$font-family: Helvetica, Areal, sans-serif !default;
+$font-size: 3.5vw !default;
+$font-color: black !default;
+
+html, body {
+    font-family: $font-family;
+    color: $font-color;
+    font-size: $font-size;
+}

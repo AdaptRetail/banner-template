@@ -1,0 +1,11 @@
+$logo-path: 'assets/logo.png' !default;
+$logo-aspect: 23% !default;
+$logo-padding: 3% !default;
+.logo {
+    &:before {
+        content: '';
+        display:block;
+        padding-bottom: $logo-aspect;
+        @include background-image( inline-image( $logo-path ), bottom );
+    }
+}
