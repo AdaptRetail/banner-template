@@ -43,6 +43,13 @@ mix.js('src/main.js', 'dist/app.js')
 mix.browserSync( {
     server: true,
     proxy: null,
+    files: [
+        'dist/*.js',
+        'dist/*.css',
+        'index.html',
+        'node_modules/@adapt-retail/**/*.js',
+        'node_modules/@adapt-retail/**/*.css',
+    ]
 } );
 
 // Full API

@@ -1,5 +1,5 @@
-// import AdaptData from '@adapt-retail/adapt-api';
-// console.log(AdaptData);
+import AdaptData from '@adapt-retail/adapt-api';
+console.log(AdaptData);
 import mustache from 'mustache';
 import Swipe from 'swipejs';
 
