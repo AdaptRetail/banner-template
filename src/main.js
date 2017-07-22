@@ -1,4 +1,5 @@
-// import {AdaptData} from '@lassehaslev/banner-kickstarter';
+// import AdaptData from '@adapt-retail/adapt-api';
+// console.log(AdaptData);
 import mustache from 'mustache';
 import Swipe from 'swipejs';
 

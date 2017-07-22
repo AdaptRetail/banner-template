@@ -12,9 +12,18 @@ mix.sass = function(src, output, pluginOptions = {}) {
     pluginOptions = {
         functions: Base64(),
     }
-
-    return sassFunction.call( this, src, output, pluginOptions );
+return sassFunction.call( this, src, output, pluginOptions );
 }
+
+/*
+ * Highjack mix browsersync cause
+ * it seems like it will not asllow you to set server option
+ * cause it adds proxy behind the scenes.
+ */
+// mix.browserSync = function() {
+    // console.log();
+// }
+
 
 /*
  |--------------------------------------------------------------------------
@@ -27,8 +36,14 @@ mix.sass = function(src, output, pluginOptions = {}) {
  |
  */
 
-mix.js('src/main.js', 'dist/')
-   .sass('src/Style/main.scss', 'dist/');
+mix.js('src/main.js', 'dist/app.js')
+   .sass('src/Style/main.scss', 'dist/app.css');
+
+// mix.browserSync();
+mix.browserSync( {
+    server: true,
+    proxy: null,
+} );
 
 // Full API
 // mix.js(src, output);

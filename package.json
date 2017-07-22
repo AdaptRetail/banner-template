@@ -6,6 +6,10 @@
     "build": "banner-serve production"
   },
   "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "browser-sync": "^2.18.13",
+    "browser-sync-webpack-plugin": "^1.2.0",
     "gsap": "^1.19.1",
     "mustache": "^2.3.0",
     "swipejs": "https://github.com/LasseHaslev/swipe.git"
