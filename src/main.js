@@ -2,8 +2,6 @@ import AdaptData from '@adapt-retail/adapt-api';
 import mustache from 'mustache';
 import Swipe from 'swipejs';
 
-import { TweenLite } from 'gsap';
-
 var shouldDebug = false;
 var debug = function( output ) {
     if (shouldDebug) {
@@ -33,21 +31,6 @@ var itemIndexCarousel = function( index ) {
     return index;
 };
 
-var animateProductIn = function( element ) {
-    var image = element ? element.querySelector( '.product-image' ) : '.image';
-    TweenLite.set( '.image', { opacity: 0 } );
-    TweenLite.fromTo( image, 3, { 
-        opacity: '0',
-        rotation: '8deg',
-        scale: .7,
-    }, { 
-        opacity: '1',
-        rotation: '0deg',
-        scale: 1,
-    } );
-}
-var animateProductOut = function( element ) {
-}
 
 var items = [];
 var startItem = 0;
@@ -76,11 +59,9 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             item.pricematch = item.pricematch === "1";
             item.threefortwo = item.threefortwo === "1";
             item.description = item.descriptionshort;
-            console.log(item);
+            debug(item);
             return item;
         } );
-        items = [items[0], items[1]];
-        debug(items[0]);
 
         // Innsert all products to swiper
         for (var i = 0, len = items.length; i < len; i++) {
@@ -88,9 +69,6 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             var content = mustache.render( productTemplate, item );
             insertHtml( swipeWrap, content );
         }
-
-        // TweenLite.set( '.image', { opacity: 0 } );
-        // animateProductIn();
 
         // Init swipe
         window.mySwipe = new Swipe(slider, {
@@ -101,7 +79,6 @@ document.addEventListener( "DOMContentLoaded", function(e) {
 
                 var itemid = to.id;
 
-                animateProductIn( element );
 
                 //This is called on human/touch swipe
                 if (isInteraction) {
@@ -111,9 +88,6 @@ document.addEventListener( "DOMContentLoaded", function(e) {
                     // event('Next',itemid);
                     window.mySwipe.stop(); // This does not work. (Something wrong with SwipeJs?)
                 }
-            },
-            transitionEnd: function(index, element) {
-                animateProductOut( element );
             },
             speed: 400,
             draggable: true,
