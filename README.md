@@ -19,7 +19,7 @@ git clone https://github.com/AdaptRetail/banner-template
 cd banner-template
 
 // Install dependencies
-npm run 
+npm install 
 ```
 
 ## Usage
