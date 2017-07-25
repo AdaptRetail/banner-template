@@ -2,4 +2,21 @@ $product-padding: $margin !default;
 
 .product {
     padding: $product-padding;
+    height: 100%;
+}
+
+.product-image {
+    @include background-image;
+    height: 100%;
+}
+
+.vendor-logo {
+    @include background-image( null, left );
+    padding-bottom: 11%;
+    margin-bottom: 3%;
+}
+
+.name {
+    font-weight: bold;
+    font-size: $font-size*1.3;
 }

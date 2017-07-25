@@ -1,0 +1,20 @@
+.price {
+    @include bomb( 70% );
+    width: 40%;
+
+    border-radius: 50%;
+
+    background-color: red;
+    color: white;
+
+    font-size: $font-size*2.7;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    &__save {
+        text-decoration: line-through;
+    }
+
+}

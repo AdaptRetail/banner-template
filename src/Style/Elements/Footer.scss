@@ -1,4 +1,4 @@
-$footer-background: #F0C259 !default;
+$footer-background: inherit !default;
 $footer-logo-padding: $margin !default;
 $footer-logo-width: 55% !default;
 #footer {
@@ -9,7 +9,6 @@ $footer-logo-width: 55% !default;
         // float:left;
         width: $footer-logo-width;
         margin: 0 auto;
-        z-index: -100;
-        padding: $footer-logo-padding;
+        padding-top: $footer-logo-padding;
     }
 }

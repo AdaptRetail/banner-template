@@ -5,8 +5,6 @@
     "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "dependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-preset-env": "^1.6.0",
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
     "gsap": "^1.19.1",
@@ -14,7 +12,8 @@
     "swipejs": "https://github.com/LasseHaslev/swipe.git"
   },
   "devDependencies": {
-    "@lassehaslev/sass-asset-inliner": "^0.1.0",
-    "laravel-mix": "^1.2.2"
+    "@adapt-retail/adapt-api": "https://github.com/LasseHaslev/adapt-data.git",
+    "@adapt-retail/banner-builder": "https://github.com/LasseHaslev/adapt-mix-extender.git",
+    "@adapt-retail/banner-style": "https://github.com/LasseHaslev/adapt-style.git"
   }
 }

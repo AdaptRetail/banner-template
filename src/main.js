@@ -1,47 +1,23 @@
 import AdaptData from '@adapt-retail/adapt-api';
-console.log(AdaptData);
 import mustache from 'mustache';
 import Swipe from 'swipejs';
 
 import { TweenLite } from 'gsap';
 
-// include style
-// require( './Style/main.scss' );
-
-var debugging = true;
-var debug = function( object ) {
-    if (debugging) {
-        console.log(object);
+var shouldDebug = false;
+var debug = function( output ) {
+    if (shouldDebug) {
+        console.log(output);
     }
 }
 
-window.adapt_data = {
-        data: [
-            {
-                name: 'Prime hvilestol',
-                description: 'Prime fotskammel eik, x-fot alu, fåreskinn charcoal. For dette møbelet er det mulig å velge mellom flere ulike stoffer eller materialer.',
-                image: 'assets/images/prime_hvilestol.png',
-                price: {
-                    now: '15.195',
-                    save: '3.800',
-                },
-                intropris: false,
-            },
-            {
-                name: 'Trondheim høy stol',
-                description: 'Velg mellom ulike stoffer eller materialer. Sittehøyde på 56 cm. Krakk følger ikke med. Trondheim krakk 2.895,– (Før 3.495,–)',
-                image: 'assets/images/trondheim_large.png',
-                price: {
-                    now: '9.995',
-                    save: '3.000',
-                },
-                intropris: true,
-            },
-        ]
-    }
-
 // Prepare adapt data
-var adaptData = new AdaptData();
+var adaptData = new AdaptData( {
+    account: 'priceco58c12436f20b4',
+    project: 1,
+    campaign: 1,
+    production: 1,
+} );
 
 var insertHtml = function(element, html) {
     element.insertAdjacentHTML( 'beforeEnd', html );
@@ -58,7 +34,7 @@ var itemIndexCarousel = function( index ) {
 };
 
 var animateProductIn = function( element ) {
-    var image = element ? element.querySelector( '.image' ) : '.image';
+    var image = element ? element.querySelector( '.product-image' ) : '.image';
     TweenLite.set( '.image', { opacity: 0 } );
     TweenLite.fromTo( image, 3, { 
         opacity: '0',
@@ -66,7 +42,7 @@ var animateProductIn = function( element ) {
         scale: .7,
     }, { 
         opacity: '1',
-        rotation: '-3deg',
+        rotation: '0deg',
         scale: 1,
     } );
 }
@@ -95,8 +71,15 @@ document.addEventListener( "DOMContentLoaded", function(e) {
         items = Object.keys( data.data ).map( function(key) {
             return data.data[key];
         } ).map( function(item) {
+            item.image = adaptData.asset( item.image );
+            item.vendorlogo = adaptData.asset( item.vendorlogo );
+            item.pricematch = item.pricematch === "1";
+            item.threefortwo = item.threefortwo === "1";
+            item.description = item.descriptionshort;
+            console.log(item);
             return item;
         } );
+        items = [items[0], items[1]];
         debug(items[0]);
 
         // Innsert all products to swiper
@@ -118,7 +101,7 @@ document.addEventListener( "DOMContentLoaded", function(e) {
 
                 var itemid = to.id;
 
-                // animateProductIn( element );
+                animateProductIn( element );
 
                 //This is called on human/touch swipe
                 if (isInteraction) {
