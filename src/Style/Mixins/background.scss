@@ -1,8 +1,0 @@
-@mixin background-image( $background: false, $position: center, $size: contain ) {
-    @if $background {
-        background: $background;
-    }
-    background-size: $size;
-    background-repeat: no-repeat;
-    background-position: $position;
-}

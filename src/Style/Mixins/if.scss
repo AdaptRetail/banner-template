@@ -1,5 +1,0 @@
-@mixin instore-tv {
-    @if $is-instore-tv {
-        @content;
-    }
-}
