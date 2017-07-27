@@ -24,7 +24,7 @@ npm install
 
 ## Usage
 
-### `watch`
+### `npm run watch`
 You can see the banner when working on it simply by writing `npm run watch`.
 This will start [Browser Sync](https://www.browsersync.io/) and will display you add, and refresh your content when you save files.
 
@@ -32,7 +32,7 @@ If you want to test your banners on different devices you can see in the termina
 There will be a `External` info with a `ip-address`. 
 > All the browsers will be refreshed on file save. Even the one on external devices.
 
-### `prod`
+### `npm run prod`
 The `npm run prod` command is minifying css and javascript and removes source maps.
 <!-- The prod command will also change `AdaptData` to `LightAdaptData`. -->
 
