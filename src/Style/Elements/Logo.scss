@@ -1,4 +1,4 @@
-$logo-path: 'http://static1.squarespace.com/static/57c02e0a4402430af25d6166/57c4b9a2197aeaea690e70c0/587fdb8246c3c4bd046525ad/1484774425188/acme.png?format=1000w' !default;
+$logo-path: 'http://static1.squarespace.com/static/57c02e0a4402430af25d6166/57c4b9a2197aeaea690e70c0/587fdb8246c3c4bd046525ad/1484774425188/acme.png' !default;
 $logo-aspect: 32% !default;
 $logo-padding: 3% !default;
 .logo {
@@ -6,6 +6,6 @@ $logo-padding: 3% !default;
         content: '';
         display:block;
         padding-bottom: $logo-aspect;
-        @include background-image( inline-image( $logo-path ), bottom );
+        @include background-image( inline-image( $logo-path, "200" ), bottom );
     }
 }
