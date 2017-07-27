@@ -6,6 +6,6 @@ $logo-padding: 3% !default;
         content: '';
         display:block;
         padding-bottom: $logo-aspect;
-        @include background-image( inline-image( $logo-path, "200" ), bottom );
+        @include background-image( inline-image( $logo-path, "300" ), bottom );
     }
 }
