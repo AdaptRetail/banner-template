@@ -34,7 +34,7 @@ There will be a `External` info with a `ip-address`.
 
 ### `prod`
 The `npm run prod` command is minifying css and javascript and removes source maps.
-The prod command will also change `AdaptData` to `LightAdaptData`.
+<!-- The prod command will also change `AdaptData` to `LightAdaptData`. -->
 
 ## Building banners
 
@@ -45,7 +45,7 @@ The adapt banner builder is extending [laravel-mix](https://github.com/JeffreyWa
 The banner builder is including [sass-asset-inliner](https://github.com/LasseHaslev/sass-asset-inliner) for base64 encoding assets.
 Even though `laravel-mix` is including multiple asset compilers, the `asset-inliner` will only be included when you use the `sass` compiler.
 
-### Helpers
+### Best practice
 
 #### Responsiveness
 When building banners you should have the responsive thinking.
