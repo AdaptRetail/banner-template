@@ -26,11 +26,13 @@ npm install
 
 ### `npm run watch`
 You can see the banner when working on it simply by writing `npm run watch`.
-This will start [Browser Sync](https://www.browsersync.io/) and will display you add, and refresh your content when you save files.
+This will start [Browser Sync](https://www.browsersync.io/) and will display your content, and refresh your browsers every time you save a file.
 
 If you want to test your banners on different devices you can see in the terminal after you entered the command.
 There will be a `External` info with a `ip-address`. 
-> All the browsers will be refreshed on file save. Even the one on external devices.
+Copy paste that info into your browser on your external devices and watch the magic happens.
+
+> Note: All the external devices must be on the same local network as your development machine.
 
 ### `npm run prod`
 The `npm run prod` command is minifying css and javascript and removes source maps.
@@ -39,6 +41,7 @@ The `npm run prod` command is minifying css and javascript and removes source ma
 ## Building banners
 
 The adapt banner builder is extending [laravel-mix](https://github.com/JeffreyWay/laravel-mix).
+Therefor you can customize whats happens when building using `webpack.mix.js`.
 
 ### Style
 
