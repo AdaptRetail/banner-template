@@ -1,22 +1,46 @@
 $product-padding: $margin !default;
+$product-name-font-size: $font-size*1.3;
+$product-vendor-height-aspect: 11%;
+$product-vendor-spacing: 3%;
 
+/*
+ * This file is handling the style of each products in the swipe menu
+ */
 .product {
+
+    // Add spacing from the edge
     padding: $product-padding;
+
+    // Need to set height to make children also fill height
     height: 100%;
 }
 
 .product-image {
+
+    // Added background image
+    // The actual background image is set in "src/views/product.template.html"
     @include background-image;
+
+    // Fill parent height
     height: 100%;
 }
 
 .vendor-logo {
+
+    // Added background image but set background-position to left
+    // The actual background image is set in "src/views/product.template.html"
     @include background-image( null, left );
-    padding-bottom: 11%;
-    margin-bottom: 3%;
+
+    // You cannot set height of this element to a percentage value cause of the parent height is not set.
+    // You need to add padding-bottom. This is cause the padding values
+    // is calculated through the width of the element, not the height. 
+    padding-bottom: $product-vendor-height-aspect;
+
+    // Add spacing to description
+    margin-bottom: $product-vendor-spacing;
 }
 
 .name {
     font-weight: bold;
-    font-size: $font-size*1.3;
+    font-size: $product-name-font-size;
 }

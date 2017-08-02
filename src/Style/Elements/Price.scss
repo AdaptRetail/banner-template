@@ -4,20 +4,27 @@ $price-width: 35%;
 $price-bomb-aspect: 70%;
 
 .price {
-    @include bomb( $price-bomb-aspect );
-    width: $price-width;
 
+    // Add rounded background
+    @include bomb( $price-bomb-aspect );
+
+    // Sizing
+    width: $price-width;
+    font-size: $price-font-size;
+
+    // Added round edges on background
     border-radius: 50%;
 
+    // Coloring
     background-color: $price-background-color;
     color: white;
 
-    font-size: $price-font-size;
-
+    // Move to bottom right
     position: absolute;
     bottom: 0;
     right: 0;
 
+    // Price tag in description
     &__save {
         text-decoration: line-through;
     }
