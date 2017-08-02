@@ -1,10 +1,11 @@
+/*
+ * Import everything this banner needs
+ */
 @import "./Utilities/_all";
 @import "../../node_modules/@adapt-retail/banner-style/src/main.scss";
 @import "./Mixins/_all";
 
+@import "./Functions/_all";
+
 @import "./Core/_all";
 @import "./Elements/_all.scss";
-
-.grid.is-vertical {
-    height: 100%;
-}

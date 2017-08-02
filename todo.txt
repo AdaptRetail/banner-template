@@ -1,3 +1,5 @@
 [ ] Add webpack alias for LightAdaptData when running production script
 [ ] Recommended: Add that you should use collection instead of a banner production
     [ ] Add to readme that you need to publish collection
+
+[ ] Fix so the swiper stops when triggered by user interaction

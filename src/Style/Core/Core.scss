@@ -1,11 +1,12 @@
+/*
+ * Add the default options to every element within the banner
+ */
 * {
+    // Reset padding and margin
     padding:0;
     margin: 0;
-    box-sizing: border-box;
-}
 
-html, body, #adaptBanner {
-    height: 100%;
-    background: $banner-background;
-    overflow: hidden;
+    // Calculate width and height as the border and padding is inside the width.
+    // This makes it easier to calculate percentage value to element
+    box-sizing: border-box;
 }

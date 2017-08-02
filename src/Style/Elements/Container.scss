@@ -1,0 +1,16 @@
+$banner-background: transparent !default;
+
+/*
+ * This file handles the style of the banner container
+ */
+
+html, body, #adaptBanner {
+    // You need to set height to make children also fill height
+    height: 100%;
+
+    // Add background
+    background: $banner-background;
+
+    // Prevent content from overflowing
+    overflow: hidden;
+}

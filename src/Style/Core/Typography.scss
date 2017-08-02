@@ -1,7 +1,20 @@
-$font-family: Helvetica, Areal, sans-serif !default;
+/*
+ * This files handles your typography settings in the banner
+ */
+
+// Setup google font family font
+$font-name: "Zilla Slab Highlight"; // Note: if you have multiple words you need to 
+$font-family: $font-name, sans-serif !default;
+
+// Import the google font
+// Replaces the spaces in $font-name to "+" so it can be found by google
+@import url( "https://fonts.googleapis.com/css?family=#{str-replace($font-name, " ", "+")}" );
+
+// Add default font style
 $font-size: 3.5vw !default;
 $font-color: black !default;
 
+// Append the settings to html element
 html, body {
     font-family: $font-family;
     color: $font-color;
