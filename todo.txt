@@ -1,1 +1,3 @@
 [ ] Add webpack alias for LightAdaptData when running production script
+[ ] Recommended: Add that you should use collection instead of a banner production
+    [ ] Add to readme that you need to publish collection

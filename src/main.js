@@ -2,7 +2,7 @@ import AdaptData from '@adapt-retail/adapt-api';
 import mustache from 'mustache';
 import Swipe from 'swipejs';
 
-var shouldDebug = false;
+var shouldDebug = true;
 var debug = function( output ) {
     if (shouldDebug) {
         console.log(output);
@@ -37,11 +37,13 @@ var startItem = 0;
 
 // Prepare views
 var productTemplate = require( './views/product.template.html' );
-var bannerContainer = document.getElementById( 'adaptBanner' );
 
-// Add Html
-insertHtml( document.querySelector( 'head' ), require( './views/head.template.html' ) );
+// Add container
+var bannerContainer = document.getElementById( 'adaptBanner' );
 insertHtml( bannerContainer, require( './views/container.template.html' ) );
+
+// Add Head
+insertHtml( document.querySelector( 'head' ), require( './views/head.template.html' ) );
 
 var swipeWrap = document.querySelector( '.swipe-wrap' );
 var slider = document.getElementById('slider');
@@ -63,9 +65,11 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             return item;
         } );
 
-        // Innsert all products to swiper
+        // Insert all products to swipe carousel
         for (var i = 0, len = items.length; i < len; i++) {
             var item = items[i];
+
+            // Render template
             var content = mustache.render( productTemplate, item );
             insertHtml( swipeWrap, content );
         }
@@ -82,6 +86,7 @@ document.addEventListener( "DOMContentLoaded", function(e) {
 
                 //This is called on human/touch swipe
                 if (isInteraction) {
+                    debug( 'is interaction' );
                     // if (adform) {
                         // dhtml.sendEvent(4, 'Next');
                     // }
@@ -97,6 +102,7 @@ document.addEventListener( "DOMContentLoaded", function(e) {
 
             startSlide: startItem
         });
+
 
     } );
 
