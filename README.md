@@ -12,13 +12,13 @@ This system uses
 ## Install
 
 ```bash
-// Clone repository
+# Clone repository
 git clone https://github.com/AdaptRetail/banner-template
 
-// Go to directory
+# Go to directory
 cd banner-template
 
-// Install dependencies
+# Install dependencies
 npm install 
 ```
 
