@@ -3,7 +3,7 @@ let mix = require( 'laravel-mix' );
 /*
  * Extend Laravel Mix
  */
-require( '@adapt-retail/banner-builder' ).extend( mix );
+require( '@adapt-retail/adapt-mix-extender' ).extend( mix );
 
 /*
  * Build script and compile sass

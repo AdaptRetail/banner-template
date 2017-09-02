@@ -1,4 +1,4 @@
-import AdaptData from '@adapt-retail/adapt-api';
+import AdaptData from '@adapt-retail/banner-data';
 import mustache from 'mustache';
 import Swipe from 'swipejs';
 
