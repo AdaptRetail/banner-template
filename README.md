@@ -1,6 +1,7 @@
 # Banner template
 > A great starting point for building product based banners.
 
+![Demo of banner template](assets/banner_preview.gif)
 
 This system uses
 - [ Adapt style ](https://github.com/LasseHaslev/adapt-style)
