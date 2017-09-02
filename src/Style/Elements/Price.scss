@@ -1,9 +1,16 @@
 $price-background-color: #ed1b2d !default;
-$price-font-size: $font-size*2.7;
+$price-font-size: $font-size*3.7;
 $price-width: 35%;
 $price-bomb-aspect: 70%;
+$price-font: "Teko";
+
+// Import Google font
+@import url( "https://fonts.googleapis.com/css?family=#{str-replace($price-font, " ", "+")}" );
 
 .price {
+
+    // Set font family to google font
+    font-family: $price-font;
 
     // Add rounded background
     @include bomb( $price-bomb-aspect );
@@ -11,6 +18,10 @@ $price-bomb-aspect: 70%;
     // Sizing
     width: $price-width;
     font-size: $price-font-size;
+
+    // Add some space above text
+    // (This is needed to this google font, and is in most cases not needed)
+    padding-top: 1.5%;
 
     // Added round edges on background
     border-radius: 50%;
