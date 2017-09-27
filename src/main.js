@@ -1,4 +1,5 @@
 import AdaptData from '@adapt-retail/banner-data';
+import DOMHandler from './Classes/DOMHandler';
 import mustache from 'mustache';
 import Swipe from 'swipejs';
 
@@ -17,9 +18,6 @@ var adaptData = new AdaptData( {
     production: 1,
 } );
 
-var insertHtml = function(element, html) {
-    element.insertAdjacentHTML( 'beforeEnd', html );
-};
 
 var itemIndexCarousel = function( index ) {
     if (index < 0) {
@@ -39,20 +37,13 @@ var startItem = 0;
 var productTemplate = require( './views/product.template.html' );
 
 // Add container
-var bannerContainer = document.getElementById( 'adaptBanner' );
-insertHtml( bannerContainer, require( './views/container.template.html' ) );
-
-// Add Head
-insertHtml( document.querySelector( 'head' ), require( './views/head.template.html' ) );
-
-var swipeWrap = document.querySelector( '.swipe-wrap' );
-var slider = document.getElementById('slider');
+DOMHandler.insertInBannerContainer( require( './views/container.template.html' ) );
+DOMHandler.insertInHead( require( './views/head.template.html' ) );
 
 // Run init when DOM is ready
 document.addEventListener( "DOMContentLoaded", function(e) {
 
     adaptData.start( function( data ) {
-        debug(data);
         items = Object.keys( data.data ).map( function(key) {
             return data.data[key];
         } ).map( function(item) {
@@ -65,17 +56,20 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             return item;
         } );
 
+        // Find element to add all the swipe information in to
+        var swipeWrap = document.querySelector( '.swipe-wrap' );
+
         // Insert all products to swipe carousel
         for (var i = 0, len = items.length; i < len; i++) {
             var item = items[i];
 
             // Render template
             var content = mustache.render( productTemplate, item );
-            insertHtml( swipeWrap, content );
+            DOMHandler.insertHtml( swipeWrap, content );
         }
 
         // Init swipe
-        window.mySwipe = new Swipe(slider, {
+        window.mySwipe = new Swipe(document.getElementById('slider'), {
             callback: function(index, element, direction, isInteraction) {
                 var to = items[index];
                 var from = items[ itemIndexCarousel( index + direction ) ];
