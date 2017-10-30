@@ -106,7 +106,7 @@ document.addEventListener( "DOMContentLoaded", function(e) {
         }
 
         // Init swipe
-        window.mySwipe = new Swipe(document.getElementById('slider'), {
+        window.swipe = new Swipe(document.getElementById('slider'), {
             callback: function(index, element, direction, isInteraction) {
                 var to = items[index];
                 var from = items[ itemIndexCarousel( index + direction ) ];
@@ -122,16 +122,21 @@ document.addEventListener( "DOMContentLoaded", function(e) {
                         // dhtml.sendEvent(4, 'Next');
                     // }
                     // event('Next',itemid);
-                    window.mySwipe.stop(); // This does not work. (Something wrong with SwipeJs?)
+
+                    /**
+                     * To stop the swipe we must get the swipe instance outside of the context
+                     * Therefor we put it in a setTimeout
+                     */
+                    window.setTimeout( function() {
+                        window.swipe.stop();
+                    },0 );
                 }
             },
             speed: 400,
-            draggable: true,
             auto: 4000,
 
-            autoRestart: true,
-
-            startSlide: startItem
+            startSlide: startItem,
+            stopPropagation: true,
         });
 
 
