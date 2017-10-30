@@ -1,0 +1,30 @@
+$navigation-item-margin: 0 0 .5em 0;
+$navigation-item-padding: .3em;
+$navigation-item-background-color: #000;
+$navigation-item-border-thickness: .1em;
+$navigation-item-border-color: white;
+$navigation-item-opacity: .2;
+$navigation-item-opacity-active: .5;
+$navigation-item-transition-speed: .3s;
+
+.navigation {
+    text-align: center;
+
+    &__item {
+
+        cursor: pointer;
+
+        transition: all $navigation-item-transition-speed;
+        padding: $navigation-item-padding;
+        margin: $navigation-item-margin;
+        border-radius: 50%;
+        display: inline-block;
+        opacity: $navigation-item-opacity;
+        border: $navigation-item-border-thickness solid $navigation-item-border-color;
+        background: $navigation-item-background-color;
+
+        &.is-active {
+            opacity: $navigation-item-opacity-active;
+        }
+    }
+}

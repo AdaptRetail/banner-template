@@ -112,6 +112,8 @@ document.addEventListener( "DOMContentLoaded", function(e) {
         // Find element to add all the swipe information in to
         var swipeWrap = document.querySelector( '.swipe-wrap' );
 
+        var navigation = document.querySelector( '.navigation' );
+
         // Start product
         var startingProduct = Math.floor(Math.random() * items.length);
 
@@ -122,6 +124,9 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             // Render template
             var content = mustache.render( ProductTemplate, item );
             DOMHandler.insertHtml( swipeWrap, content );
+
+            // Add dot to navigation
+            DOMHandler.insertHtml( navigation, mustache.render( require( '../views/navigation-item.template.html' ), { index: i } ) );
         }
 
         // Init swipe
