@@ -49,11 +49,6 @@ $price-font-color: white;
     &__decimal {
         font-size: .5em;
         vertical-align: top;
-
-        /**
-         * Add small space between integer and decimal
-         */
-        padding-left: .08em;
     }
 
     &__number {
