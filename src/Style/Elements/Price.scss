@@ -1,43 +1,67 @@
 $price-background-color: #ed1b2d !default;
-$price-font-size: $font-size*3.7;
-$price-width: 35%;
-$price-bomb-aspect: 70%;
-$price-font: "Teko";
+$price-font-size: 6.5em !default;
+$price-font: "Teko" !default;
+$price-line-height: .77 !default;
+$price-padding: .2em;
 
 // Import Google font
-@import url( "https://fonts.googleapis.com/css?family=#{str-replace($price-font, " ", "+")}" );
+@include google-font( $price-font );
 
 .price {
 
     // Set font family to google font
     font-family: $price-font;
 
-    // Add rounded background
-    @include bomb( $price-bomb-aspect );
+    /*
+     * Make it take up exactly the space it needs
+     */
+    display: inline-block;
 
-    // Sizing
-    width: $price-width;
-    font-size: $price-font-size;
+    /**
+     * Inline and set the background of the price tag
+     */
+    @include background-image( inline-image( 'assets/priceco-price_bg.png' ), contain );
 
-    // Add some space above text
-    // (This is needed to this google font, and is in most cases not needed)
-    padding-top: 1.5%;
-
-    // Added round edges on background
-    border-radius: 50%;
-
-    // Coloring
-    background-color: $price-background-color;
+    /**
+     * Set text color
+     */
     color: white;
 
-    // Move to bottom right
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    /**
+     * Set price font size
+     */
+    font-size: $price-font-size;
 
-    // Price tag in description
-    &__save {
-        text-decoration: line-through;
+    /**
+     * Correct the line height of the font
+     */
+    line-height: $price-line-height;
+
+    /**
+     * Set the padding
+     */
+    padding: $price-padding;
+
+    /**
+     * Set price__decimal to half of font size
+     */
+    &__decimal {
+        font-size: .5em;
+        vertical-align: top;
+
+        /**
+         * Add small space between integer and decimal
+         */
+        padding-left: .08em;
+    }
+
+    &__number {
+        /**
+         * When using inline block
+         * Make sure you remove all spacing between elements in the HTML
+         * Else you will have a strange space, we cannot do anything about.
+         */
+        display: inline-block;
     }
 
 }

@@ -5,7 +5,9 @@
             <div class="column is-filled">
                 <div>
                     <div class="product-image" style="background-image:url( {{ image }} );"></div>
-                    <div class="price">{{ pricenow }}</div>
+                    <div class="price">
+                        <div class="price__number price__integer">{{ price.integer }}</div><div class="price__number price__decimal">{{ price.decimal }}</div>
+                    </div>
                 </div>
             </div>
             <div class="column is-narrow">

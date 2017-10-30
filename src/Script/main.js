@@ -72,14 +72,30 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             * Format the Adapt data to fit this templates needs
             */
         } ).map( function(item) {
+
+
             item.image = adaptData.asset( item.image );
             item.vendorlogo = adaptData.asset( item.vendorlogo );
             item.pricematch = item.pricematch === "1";
             item.threefortwo = item.threefortwo === "1";
             item.description = item.descriptionshort;
+
+            /**
+             * Split the price now to become array with integer and decimal
+             * If no decimal is found, we set as 00
+             */
+            var tmpPrice = item.pricenow.split( /[,\.]/ );
+            item.price = {
+                integer: tmpPrice[0],
+                decimal: tmpPrice.length >= 2 ? tmpPrice[1] : '00',
+            }
+
             console.log(item);
+
             return item;
         } );
+
+        items = [items[0]];
 
         // Find element to add all the swipe information in to
         var swipeWrap = document.querySelector( '.swipe-wrap' );

@@ -6,3 +6,8 @@
 @import "./Mixins/_all";
 @import "./Core/_all";
 @import "./Elements/_all.scss";
+
+/**
+ * Include the banner grid
+ */
+@include banner-grid;

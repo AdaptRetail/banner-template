@@ -29,7 +29,7 @@ $product-vendor-spacing: 3%;
 
     // Added background image but set background-position to left
     // The actual background image is set in "src/views/product.template.html"
-    @include background-image( null, left );
+    @include background-image( null, contain, left );
 
     // You cannot set height of this element to a percentage value cause of the parent height is not set.
     // You need to add padding-bottom. This is cause the padding values
@@ -38,6 +38,15 @@ $product-vendor-spacing: 3%;
 
     // Add spacing to description
     margin-bottom: $product-vendor-spacing;
+}
+
+/**
+ * Set the position of the price tag
+ */
+.price {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .name {

@@ -40,7 +40,7 @@ $footer-logo-aspect: 37% !default;
                 inline-image( $footer-logo-path )
 
             // Position the background from the ground
-            , bottom );
+            , contain, bottom );
         }
     }
 }
