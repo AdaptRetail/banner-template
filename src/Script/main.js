@@ -160,6 +160,12 @@ document.addEventListener( "DOMContentLoaded", function(e) {
          */
         lazyLoadBackgroundImages( swipeWrap.children[ startingProduct ] );
 
+        /**
+         * Stop swiping when clicking on banner
+         */
+        swipeWrap.addEventListener( 'click', function() {
+            window.swipe.stop();
+        }, false );
 
     } );
 
