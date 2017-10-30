@@ -4,3 +4,4 @@ yarn-error.log
 yarn.lock
 dist/
 mix-manifest.json
+package-lock.json

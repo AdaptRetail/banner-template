@@ -1,16 +1,24 @@
+
+/**
+ * Import all external resources
+ */
 import AdaptData from '@adapt-retail/banner-data';
 import DOMHandler from './Classes/DOMHandler';
 import mustache from 'mustache';
 import Swipe from 'swipejs';
 
-var shouldDebug = true;
-var debug = function( output ) {
-    if (shouldDebug) {
-        console.log(output);
-    }
-}
+/**
+ * Import all html templates
+ */
+import HeadTemplate from '../views/head.template.html';
+import ContainerTemplate from '../views/container.template.html';
+import ProductTemplate from '../views/product.template.html';
 
-// Prepare adapt data
+/**
+ * Prepare Adapt data
+ * If local development we connect to the API
+ * If not we are using the data adapt provides for us
+ */
 var adaptData = new AdaptData( {
     account: 'priceco58c12436f20b4',
     project: 1,
@@ -18,7 +26,14 @@ var adaptData = new AdaptData( {
     production: 1,
 } );
 
-
+/**
+ * Calculate the next or previous product index.
+ *
+ * if below first we get the last product
+ * if it is larger than number of products it chooses the first one.
+ *
+ * @return Integer
+ */
 var itemIndexCarousel = function( index ) {
     if (index < 0) {
         return items.length -1;
@@ -29,30 +44,40 @@ var itemIndexCarousel = function( index ) {
     return index;
 };
 
-
 var items = [];
 var startItem = 0;
 
-// Prepare views
-var productTemplate = require( './views/product.template.html' );
-
 // Add container
-DOMHandler.insertInBannerContainer( require( './views/container.template.html' ) );
-DOMHandler.insertInHead( require( './views/head.template.html' ) );
+DOMHandler.insertInBannerContainer( ContainerTemplate );
+DOMHandler.insertInHead( HeadTemplate );
 
-// Run init when DOM is ready
+/**
+ * Run logic when DOM is ready
+ */
 document.addEventListener( "DOMContentLoaded", function(e) {
 
-    adaptData.start( function( data ) {
-        items = Object.keys( data.data ).map( function(key) {
-            return data.data[key];
+    /**
+     * Start connection to Adapt retail
+     * We return the data in the callback function
+     */
+    adaptData.start( function( response ) {
+
+        /**
+         * Convert Adapt response data to an array
+         */
+        items = Object.keys( response.data ).map( function(key) {
+            return response.data[key];
+
+            /**
+            * Format the Adapt data to fit this templates needs
+            */
         } ).map( function(item) {
             item.image = adaptData.asset( item.image );
             item.vendorlogo = adaptData.asset( item.vendorlogo );
             item.pricematch = item.pricematch === "1";
             item.threefortwo = item.threefortwo === "1";
             item.description = item.descriptionshort;
-            debug(item);
+            console.log(item);
             return item;
         } );
 
@@ -64,7 +89,7 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             var item = items[i];
 
             // Render template
-            var content = mustache.render( productTemplate, item );
+            var content = mustache.render( ProductTemplate, item );
             DOMHandler.insertHtml( swipeWrap, content );
         }
 
@@ -73,14 +98,14 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             callback: function(index, element, direction, isInteraction) {
                 var to = items[index];
                 var from = items[ itemIndexCarousel( index + direction ) ];
-                debug( from.name + ' -> ' + to.name );
+                console.log( from.name + ' -> ' + to.name );
 
                 var itemid = to.id;
 
 
                 //This is called on human/touch swipe
                 if (isInteraction) {
-                    debug( 'is interaction' );
+                    console.log( 'is interaction' );
                     // if (adform) {
                         // dhtml.sendEvent(4, 'Next');
                     // }
