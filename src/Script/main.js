@@ -45,7 +45,6 @@ var itemIndexCarousel = function( index ) {
 };
 
 var items = [];
-var startItem = 0;
 
 // Add container
 DOMHandler.insertInBannerContainer( ContainerTemplate );
@@ -135,7 +134,8 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             speed: 400,
             auto: 4000,
 
-            startSlide: startItem,
+            startSlide: Math.floor(Math.random() * items.length),
+
             stopPropagation: true,
         });
 
