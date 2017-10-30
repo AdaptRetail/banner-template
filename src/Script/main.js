@@ -99,6 +99,11 @@ document.addEventListener( "DOMContentLoaded", function(e) {
                 decimal: tmpPrice.length >= 2 ? tmpPrice[1] : '00',
             }
 
+            /**
+             * Set the url to google analytics if url does not exists
+             */
+            item.url = item.url || 'https://google.com' + response.details.ga_url + '&utm_content=' + item.id; + item.id;
+
             console.log(item);
 
             return item;
