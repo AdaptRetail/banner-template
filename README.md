@@ -63,3 +63,14 @@ If you write good responsive banners you almost only need to think about 3 forma
 If you make good banners it does not matter if the banner is `180x500` or `120x480`.
 
 One of the best media queries are [ aspect ratio ](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#aspect-ratio)
+
+### Quick tips
+
+To temporary remove all items you can add following line after we are setting the items.
+F.eks. line `97` in the `main.js` file.
+
+This overwrites the items array to only include the first item.
+
+```js
+items = [items[0]];
+```
