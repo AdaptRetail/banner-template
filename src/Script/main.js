@@ -192,6 +192,17 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             window.swipe.stop();
         }, false );
 
+        /**
+         * When clicking on navigation we swipe to that index
+         */
+        for (var i = 0, len = navigation.children.length; i < len; i++) {
+            navigation.children[i].addEventListener( 'click', function( evt ) {
+                console.log(evt.target);
+
+                window.swipe.slide( evt.target.getAttribute( 'data-index' ) );
+            } );
+        }
+
     } );
 
 } );
