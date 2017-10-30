@@ -72,8 +72,6 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             * Format the Adapt data to fit this templates needs
             */
         } ).map( function(item) {
-
-
             item.image = adaptData.asset( item.image );
             item.vendorlogo = adaptData.asset( item.vendorlogo );
             item.pricematch = item.pricematch === "1";
