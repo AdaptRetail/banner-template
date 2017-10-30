@@ -44,6 +44,18 @@ var itemIndexCarousel = function( index ) {
     return index;
 };
 
+/**
+ * Set backgroundImage to every element that has data-background-image attribute
+ * This is to lazy load images to save load time for banner.
+ */
+var lazyLoadBackgroundImages = function( element ) {
+    var backgroundImageElements = element.querySelectorAll( '[data-background-image]' )
+    for (var i = 0, len = backgroundImageElements.length; i < len; i++) {
+        var tmp = backgroundImageElements[i];
+        tmp.style.backgroundImage = 'url(' + tmp.getAttribute( 'data-background-image' ) + ')';
+    }
+}
+
 var items = [];
 
 // Add container
@@ -95,6 +107,9 @@ document.addEventListener( "DOMContentLoaded", function(e) {
         // Find element to add all the swipe information in to
         var swipeWrap = document.querySelector( '.swipe-wrap' );
 
+        // Start product
+        var startingProduct = Math.floor(Math.random() * items.length);
+
         // Insert all products to swipe carousel
         for (var i = 0, len = items.length; i < len; i++) {
             var item = items[i];
@@ -113,6 +128,7 @@ document.addEventListener( "DOMContentLoaded", function(e) {
 
                 var itemid = to.id;
 
+                lazyLoadBackgroundImages( element );
 
                 //This is called on human/touch swipe
                 if (isInteraction) {
@@ -134,10 +150,15 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             speed: 400,
             auto: 4000,
 
-            startSlide: Math.floor(Math.random() * items.length),
+            draggable: true,
 
-            stopPropagation: true,
+            startSlide: startingProduct,
         });
+
+        /**
+         * Lazy load background images of the first element
+         */
+        lazyLoadBackgroundImages( swipeWrap.children[ startingProduct ] );
 
 
     } );
