@@ -56,6 +56,22 @@ var lazyLoadBackgroundImages = function( element ) {
     }
 }
 
+/**
+ * Prepare element to show
+ */
+var prepareSwipeElementToShow = function( element, index ) {
+
+    var navigation = document.querySelector( '.navigation' );
+
+    // Remove all is-active on each navigation dot
+    for (var i = 0, len = navigation.children.length; i < len; i++) {
+        navigation.children[i].classList.remove( 'is-active' );
+        navigation.children[index].classList.add( 'is-active' );
+    }
+
+    lazyLoadBackgroundImages( element );
+};
+
 var items = [];
 
 // Add container
@@ -136,9 +152,7 @@ document.addEventListener( "DOMContentLoaded", function(e) {
                 var from = items[ itemIndexCarousel( index + direction ) ];
                 console.log( from.name + ' -> ' + to.name );
 
-                var itemid = to.id;
-
-                lazyLoadBackgroundImages( element );
+                prepareSwipeElementToShow( element, index );
 
                 //This is called on human/touch swipe
                 if (isInteraction) {
@@ -146,7 +160,7 @@ document.addEventListener( "DOMContentLoaded", function(e) {
                     // if (adform) {
                         // dhtml.sendEvent(4, 'Next');
                     // }
-                    // event('Next',itemid);
+                    // event('Next',to.id);
 
                     /**
                      * To stop the swipe we must get the swipe instance outside of the context
@@ -155,6 +169,7 @@ document.addEventListener( "DOMContentLoaded", function(e) {
                     window.setTimeout( function() {
                         window.swipe.stop();
                     },0 );
+
                 }
             },
             speed: 400,
@@ -166,9 +181,9 @@ document.addEventListener( "DOMContentLoaded", function(e) {
         });
 
         /**
-         * Lazy load background images of the first element
+         * Prepare first showin element
          */
-        lazyLoadBackgroundImages( swipeWrap.children[ startingProduct ] );
+        prepareSwipeElementToShow( swipeWrap.children[ startingProduct ], startingProduct );
 
         /**
          * Stop swiping when clicking on banner
