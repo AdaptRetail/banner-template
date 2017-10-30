@@ -1,0 +1,22 @@
+.bomb {
+    background-color: red;
+
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+
+    &.is-pricematch {
+        @include background-image( inline-image( 'assets/price-match.png' ) );
+        padding-bottom: 8em;
+        width: 10em;
+    }
+
+    &.is-threefortwo {
+        @include background-image( inline-image( 'assets/three-for-two.png' ) );
+        width: 9em;
+        padding-bottom: 9em;
+    }
+
+}

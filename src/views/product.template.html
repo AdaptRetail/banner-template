@@ -8,6 +8,13 @@
                     <!-- This means we are adding the background image later in javascript -->
                     <div class="product-image" data-background-image="{{ image }}"></div>
 
+                    {{#pricematch}}
+                        <div class="bomb is-pricematch"></div>
+                    {{/pricematch}}
+                    {{#threefortwo}}
+                        <div class="bomb is-threefortwo"></div>
+                    {{/threefortwo}}
+
                     <div class="price">
                         <div class="price__number price__integer">{{ price.integer }}</div><div class="price__number price__decimal">{{ price.decimal }}</div>
                     </div>
