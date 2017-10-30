@@ -7,8 +7,7 @@ $google-font-name: "Roboto" !default;
 $font-family: $google-font-name, sans-serif !default;
 
 // Import the google font
-// Replaces the spaces in $google-font-name to "+" so it can be found by google
-@import url( "https://fonts.googleapis.com/css?family=#{str-replace($google-font-name, " ", "+")}" );
+@include google-font( $google-font-name );
 
 // Add default font style
 $font-size: 3.5vw !default;

@@ -3,6 +3,7 @@ $price-font-size: 6.5em !default;
 $price-font: "Teko" !default;
 $price-line-height: .77 !default;
 $price-padding: .2em;
+$price-font-color: white;
 
 // Import Google font
 @include google-font( $price-font );
@@ -25,7 +26,7 @@ $price-padding: .2em;
     /**
      * Set text color
      */
-    color: white;
+    color: $price-font-color;
 
     /**
      * Set price font size

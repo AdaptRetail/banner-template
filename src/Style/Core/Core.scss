@@ -2,11 +2,15 @@
  * Add the default options to every element within the banner
  */
 * {
-    // Reset padding and margin
+    /*
+     * Reset padding and margin for every element
+     */
     padding:0;
     margin: 0;
 
-    // Calculate width and height as the border and padding is inside the width.
-    // This makes it easier to calculate percentage value to element
+    /*
+     * Calculate width and height as the border and padding is inside the width.
+     * This makes it easier to calculate percentage value to element
+     */
     box-sizing: border-box;
 }

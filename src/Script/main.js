@@ -95,8 +95,6 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             return item;
         } );
 
-        items = [items[0]];
-
         // Find element to add all the swipe information in to
         var swipeWrap = document.querySelector( '.swipe-wrap' );
 

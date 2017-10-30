@@ -1,7 +1,7 @@
 $product-padding: $margin !default;
-$product-name-font-size: $font-size*1.3;
+$product-name-font-size: 1.3em;
 $product-vendor-height-aspect: 11%;
-$product-vendor-spacing: 3%;
+$product-vendor-spacing: .6em;
 
 /*
  * This file is handling the style of each products in the swipe menu
@@ -49,6 +49,9 @@ $product-vendor-spacing: 3%;
     right: 0;
 }
 
+/**
+ * Style the product name
+ */
 .name {
     font-weight: bold;
     font-size: $product-name-font-size;
