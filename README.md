@@ -4,11 +4,11 @@
 ![Demo of banner template](assets/banner_preview.gif)
 
 This system uses
-- [ Adapt style ](https://github.com/LasseHaslev/adapt-style)
+- [ Adapt style ](https://github.com/AdaptRetail/banner-style)
     - [sass-asset-inline](https://github.com/LasseHaslev/sass-asset-inliner)
-- [ Adapt Data ](https://github.com/LasseHaslev/adapt-data)
+- [ Adapt Data ](https://github.com/AdaptRetail/banner-data)
 - [laravel-mix](https://github.com/JeffreyWay/laravel-mix)
-    - [ Laravel mix extender ](https://github.com/LasseHaslev/adapt-mix-extender)
+    - [ Laravel mix extender ](https://github.com/AdaptRetail/adapt-mix-extender)
 
 ## Install
 
