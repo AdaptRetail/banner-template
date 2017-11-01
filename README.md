@@ -74,3 +74,14 @@ This overwrites the items array to only include the first item.
 ```js
 items = [items[0]];
 ```
+
+## Publishing to [Adapt Retail](https://adaptretail.com)
+
+1. Prepare files to [Adapt Retail](https://adaptretail.com) by running `npm run prod` in your terminal.
+1. [Log in to your Adapt retail account](https://app.adaptretail.com/signup_login.php?task=login)
+1. Click on template section in your left navigation bar
+1. Create a new `Banner template`
+1. Set your properties in `Details` tab
+1. Select `Files` tab
+1. Drag `dist/ad.js` and `dist/ad.css` to the `dropzone (Drop files or click to upload)` in Adapt
+1. **And you are done!**
