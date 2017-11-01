@@ -118,7 +118,7 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             /**
              * Set the url to google analytics if url does not exists
              */
-            item.url = item.url || 'https://google.com' + response.details.ga_url + '&utm_content=' + item.id; + item.id;
+            item.url = item.url || 'https://google.com' + response.details.ga_url + '&utm_content=' + item.id;
 
             console.log(item);
 
