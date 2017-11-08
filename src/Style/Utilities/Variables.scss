@@ -3,7 +3,7 @@
  * Every variable width a !default value will be overwritten
  */
 
-$banner-background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(141,198,236,1) 100%);
+$banner-background: $priceco-blue-gradient !default;
 
 $margin: 6%;
 $font-size: 3.5vw;

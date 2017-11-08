@@ -1,11 +1,19 @@
 /*
  * Import everything this banner needs
  */
+
+
+// Import the extracted priceco banner
+@import "../../node_modules/@priceco/style/src/Utilities/_all.scss";
+
 @import "./Utilities/_all";
 @import "../../node_modules/@adapt-retail/banner-style/src/main.scss";
 @import "./Mixins/_all";
 @import "./Core/_all";
 @import "./Elements/_all.scss";
+
+// Import the extracted priceco banner
+@import "../../node_modules/@priceco/style/src/Elements/_all.scss";
 
 /**
  * Include the banner grid

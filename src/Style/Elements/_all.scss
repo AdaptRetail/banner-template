@@ -1,6 +1,11 @@
+/**
+ * The elements for the price tag and bomb has been extracted to
+ * This is cause it it is getting used in multiple other places
+ *
+ * https://github.com/AdaptRetail/priceco-style
+ */
+
 @import "Container";
 @import "Footer";
 @import "Product";
-@import "Price";
-@import "Bomb";
 @import "Navigation";

@@ -8,6 +8,7 @@
     "prod": "npm run production"
   },
   "dependencies": {
+    "@priceco/style": "git+https://github.com/AdaptRetail/priceco-style.git",
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
     "gsap": "^1.19.1",
