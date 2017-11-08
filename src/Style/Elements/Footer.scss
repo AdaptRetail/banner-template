@@ -2,8 +2,10 @@ $footer-background: transparent !default;
 $footer-logo-margin: $margin !default;
 $footer-logo-width: 55% !default;
 
-// Logo options
-$footer-logo-path: "assets/priceco_logo.svg" !default;
+/**
+ * Base64 encode image from path 
+ */
+$footer-logo: inline-image( "assets/logo.svg" ) !default;
 $footer-logo-aspect: 37% !default;
 
 #footer {
@@ -35,12 +37,7 @@ $footer-logo-aspect: 37% !default;
             padding-bottom: $footer-logo-aspect;
 
             // Add background image
-            @include background-image(
-                // Base64 encode the image from the path
-                inline-image( $footer-logo-path )
-
-            // Position the background from the ground
-            , contain, bottom );
+            @include background-image( $footer-logo, contain, bottom );
         }
     }
 }

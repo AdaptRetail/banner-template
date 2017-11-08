@@ -39,34 +39,9 @@ Copy paste that info into your browser on your external devices and watch the ma
 The `npm run prod` command is minifying css and javascript and removes source maps.
 <!-- The prod command will also change `AdaptData` to `LightAdaptData`. -->
 
-## Building banners
+### Quick tip
 
-The adapt banner builder is extending [laravel-mix](https://github.com/JeffreyWay/laravel-mix).
-Therefor you can customize whats happens when building using `webpack.mix.js`.
-
-### Style
-
-The banner builder is including [sass-asset-inliner](https://github.com/LasseHaslev/sass-asset-inliner) for base64 encoding assets.
-Even though `laravel-mix` is including multiple asset compilers, the `asset-inliner` will only be included when you use the `sass` compiler.
-
-### Best practice
-
-#### Responsiveness
-When building banners you should have the responsive thinking.
-Use as much `%`, `em`, `rem` values for width and padding on elements.
-And use `vw`, `em` and `rem` for texts. Never write static properties.
-
-#### [ Media queries ](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
-
-If you write good responsive banners you almost only need to think about 3 formats.
-`topbanner`, `skyscraper` and `board`.
-If you make good banners it does not matter if the banner is `180x500` or `120x480`.
-
-One of the best media queries are [ aspect ratio ](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#aspect-ratio)
-
-### Quick tips
-
-To temporary remove all items you can add following line after we are setting the items.
+To temporary remove all items to design for your products, you can add following line after we are setting the items.
 F.eks. line `97` in the `main.js` file.
 
 This overwrites the items array to only include the first item.
@@ -74,6 +49,13 @@ This overwrites the items array to only include the first item.
 ```js
 items = [items[0]];
 ```
+
+## Extracted style
+
+Some of the style of this template has been extracted [to another git repository](https://github.com/AdaptRetail/priceco-style).
+This is to reuse the elements and components in other productions.
+
+This is a recommendation if you are creating multiple templates for [Adapt Retail](https://adaptretail.com).
 
 ## Publishing to [Adapt Retail](https://adaptretail.com)
 
