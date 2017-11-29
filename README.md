@@ -32,6 +32,8 @@ npm install
 <a name="usage"></a>
 ## Usage
 
+This template is using `npm`, `Sass` and `Webpack` to build your files and containing [some extra helpers](#dependencies) to make things easier for you.
+
 <a name="npm-run-watch"></a>
 ### Build banners in local environment
 
@@ -56,6 +58,47 @@ npm run prod
 
 <a name="files"></a>
 ### Files
+
+All your production files will be found in the `src/` folder.
+
+We have provided the files with some content, but
+this is your files and we don't tell you what you do. 
+This is our approach when we are creating banners, 
+and you may add, move and remove files however you want.
+
+> All files are thoroughly commented, so if you're in doubt, just read the source. 
+
+<a name="script"></a>
+#### [`src/Script/main.js`](https://github.com/AdaptRetail/banner-template/blob/master/src/Script/main.js)
+
+This is the main file for your JavaScript.
+What to do from this point is totally up to you.
+
+This file will be compiled down with [Webpack](https://webpack.github.io/) using [laravel-mix](https://github.com/JeffreyWay/laravel-mix).
+This gives you some cool opertunities like.
+
+- [Up to ECMAScript 6 (ES6) JavaScript syntax](http://es6-features.org/)
+- [Import packages through NPM modules](https://www.npmjs.com/)
+- And more
+
+<a name="style"></a>
+#### [`src/Style/main.scss`](https://github.com/AdaptRetail/banner-template/blob/master/src/Style/main.scss)
+
+This is the main Sass file.
+This file is including all the other sass files.
+Do whatever you want from here.
+
+We have set up some logic to get you started. Browse through the files and see what each file does.
+If you want to overwrite some variables you can do it in [`src/Style/Utilities/Variables.scss`](https://github.com/AdaptRetail/banner-template/blob/master/src/Style/Utilities/Variables.scss).
+
+> Most of the files are containing variables you can over write in this file.
+> Just add the variable here, and it will be overwritten.
+> Try `$google-font-name: "Lobster";`
+
+<a name="views"></a>
+#### `src/views/`
+
+This folder is optional and is only there for our workflow in the [src/Scripts/main.js](#script); where we are including `.html` files instead of using strings.
 
 <a name="dependencies"></a>
 ## Dependencies
@@ -98,6 +141,8 @@ body {
     // ("200x_" equals "200" as shown above)
 }
 ```
+
+> All files are included from your root folder.
 
 ### [Adapt Data](https://github.com/AdaptRetail/banner-data)
 
