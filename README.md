@@ -48,13 +48,13 @@ npm run watch
 <a name="npm-run-prod"></a>
 ### Prepare banner for production
 
-The `npm run prod` command is compiling and minifying the css and javascript.
-All your files will be compiled to the `dist/` folder.
-
 ```bash
 # Compile files to dist/ folder
 npm run prod
 ```
+
+The `npm run prod` command is compiling and minifying the css and javascript.
+All your files will be compiled to the `dist/` folder.
 
 <a name="files"></a>
 ### Files
