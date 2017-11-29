@@ -4,28 +4,18 @@
 ![Demo of banner template](assets/banner_preview.gif)
 
 ## Table of content
-- [Dependencies](#dependencies)
 - [Install](#install)
 - [Usage](#usage)
-    - [`npm run watch`](#npm-run-watch)
-    - [`npm run prod`](#npm-run-prod)
-    - [Quick tip](#quick-tip)
+    - [Local development](#npm-run-watch)
+    - [Prepare banner for production](#npm-run-prod)
+    - [Files](#files)
+- [Dependencies](#dependencies)
 - [Extracted style](#extracted-style)
 - [Publish to Adapt Retail](#publish)
 
 
-<a href="dependencies"></a>
-## Dependencies
 
-This project is using a various different dependencies to make it easier to make display banners.
-
-- [ Adapt style ](https://github.com/AdaptRetail/banner-style)
-    - [sass-asset-inline](https://github.com/LasseHaslev/sass-asset-inliner)
-- [ Adapt Data ](https://github.com/AdaptRetail/banner-data)
-- [laravel-mix](https://github.com/JeffreyWay/laravel-mix)
-    - [ Laravel mix extender ](https://github.com/AdaptRetail/adapt-mix-extender)
-
-<a href="install"></a>
+<a name="install"></a>
 ## Install
 
 ```bash
@@ -39,38 +29,85 @@ cd banner-template
 npm install 
 ```
 
-<a href="usage"></a>
+<a name="usage"></a>
 ## Usage
 
-<a href="npm-run-watch"></a>
-### `npm run watch`
-You can see the banner when working on it simply by writing `npm run watch`.
-This will start [Browser Sync](https://www.browsersync.io/) and will display your content, and refresh your browsers every time you save a file.
+<a name="npm-run-watch"></a>
+### Build banners in local environment
 
-If you want to test your banners on different devices you can see in the terminal after you entered the command.
-There will be a `External` info with a `ip-address`. 
-Copy paste that info into your browser on your external devices and watch the magic happens.
+```bash
+# Open file in default browser (browser-sync) and
+# auto refresh browser on file save
+npm run watch
+```
+> You can also display your banners on other devices on your local network.
+> Check your terminal for information after running `npm run watch`.
 
-> Note: All the external devices must be on the same local network as your development machine.
+<a name="npm-run-prod"></a>
+### Prepare banner for production
 
-<a href="npm-run-prod"></a>
-### `npm run prod`
-The `npm run prod` command is minifying css and javascript and removes source maps.
-<!-- The prod command will also change `AdaptData` to `LightAdaptData`. -->
+The `npm run prod` command is compiling and minifying the css and javascript.
+All your files will be compiled to the `dist/` folder.
 
-<a href="quick-tip"></a>
-### Quick tip
-
-To temporary remove all items to design for your products, you can add following line after we are setting the items.
-F.eks. line `97` in the `main.js` file.
-
-This overwrites the items array to only include the first item.
-
-```js
-items = [items[0]];
+```bash
+# Compile files to dist/ folder
+npm run prod
 ```
 
-<a href="extracted-style"></a>
+<a name="files"></a>
+### Files
+
+<a name="dependencies"></a>
+## Dependencies
+
+This project is using different dependencies to make it easier to make display banners.
+
+<a name="banner-style"></a>
+### [Banner style](https://github.com/AdaptRetail/banner-style)
+
+Micro frontend framework containing helpers like `grid` system using flex.
+
+<a name="sass-asset-inline"></a>
+### [sass-asset-inline](https://github.com/LasseHaslev/sass-asset-inliner)
+
+Inline assets like `image` and `fonts` in your sass files with simple syntax.
+
+```scss
+@font-face {
+    src: inline-font( 'path/to/your/font.ttf' ); // Include full font
+
+    // Subset font by adding regex as second parameter
+    // of each character you want to include
+    src: inline-font( 'path/to/your/font.ttf', '[0-9]' );
+}
+
+body {
+    // Inline image
+    background-image: inline-image( 'path/to/your/image.png' );
+
+    // Inline and resize image to width (Kepp aspect ratio)
+    background-image: inline-image( 'path/to/your/image.png', "200" );
+
+    // Resize image and ignoring aspect ratio
+    background-image: inline-image( 'path/to/your/image.png', "200x400" );
+
+    // Resize image to height and keep aspect ratio
+    background-image: inline-image( 'path/to/your/image.png', "_x400" );
+
+    // Underscore works also for height.
+    // ("200x_" equals "200" as shown above)
+}
+```
+
+### [Adapt Data](https://github.com/AdaptRetail/banner-data)
+
+Communicate with Adapt Retail productions through our API.
+
+### [laravel-mix](https://github.com/JeffreyWay/laravel-mix)
+
+We are extending [laravel-mix](https://github.com/JeffreyWay/laravel-mix) with [Laravel mix extender](https://github.com/AdaptRetail/adapt-mix-extender) to include helpers like the [sass-asset-inline](#sass-asset-inline)
+
+<a name="extracted-style"></a>
 ## Extracted style
 
 Some of the style of this template has been extracted [to another git repository](https://github.com/AdaptRetail/priceco-style).
@@ -78,7 +115,7 @@ This is to reuse the elements and components in other productions.
 
 This is a recommendation if you are creating multiple templates for [Adapt Retail](https://adaptretail.com).
 
-<a href="publish"></a>
+<a name="publish"></a>
 ## Publishing to [Adapt Retail](https://adaptretail.com)
 
 1. [Log in to your Adapt retail account](https://app.adaptretail.com/signup_login.php?task=login)
