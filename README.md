@@ -7,11 +7,12 @@
 - [Install](#install)
 - [Usage](#usage)
     - [Local development](#npm-run-watch)
-    - [Prepare banner for production](#npm-run-prod)
+    - [Prepare files for production](#npm-run-prod)
     - [Files](#files)
 - [Dependencies](#dependencies)
 - [Extracted style](#extracted-style)
 - [Publish to Adapt Retail](#publish)
+- [License](#license)
 
 
 
@@ -32,21 +33,23 @@ npm install
 <a name="usage"></a>
 ## Usage
 
+> All dependencies must be [installed](#install) before you can start using the template.
+
 This template is using `npm`, `Sass` and `Webpack` to build your files and containing [some extra helpers](#dependencies) to make things easier for you.
 
 <a name="npm-run-watch"></a>
-### Build banners in local environment
+### Local development
 
 ```bash
 # Open file in default browser (browser-sync) and
 # auto refresh browser on file save
 npm run watch
 ```
-> You can also display your banners on other devices on your local network.
+> You can also display your production on other devices on your local network.
 > Check your terminal for information after running `npm run watch`.
 
 <a name="npm-run-prod"></a>
-### Prepare banner for production
+### Prepare files for production
 
 ```bash
 # Compile files to dist/ folder
@@ -63,7 +66,7 @@ All your production files will be found in the `src/` folder.
 
 We have provided the files with some content, but
 this is your files and we don't tell you what you do. 
-This is our approach when we are creating banners, 
+This is our approach when we are creating production, 
 and you may add, move and remove files however you want.
 
 > All files are thoroughly commented, so if you're in doubt, just read the source. 
@@ -165,9 +168,17 @@ This is a recommendation if you are creating multiple templates for [Adapt Retai
 
 1. [Log in to your Adapt retail account](https://app.adaptretail.com/signup_login.php?task=login)
 1. Click on template section in your left navigation bar
-1. Create a new `Banner template`
+1. Create a new `Banner` template
 1. Set your properties in `Details` tab
 1. Select `Files` tab
 1. Prepare files to [Adapt Retail](https://adaptretail.com) by running `npm run prod` in your terminal.
 1. Drag `dist/ad.js` and `dist/ad.css` to the `dropzone (Drop files or click to upload)` in Adapt
 1. **And you are done!**
+
+<a name="license"></a>
+## License
+
+This template heavely dependent on [GSAP animation framework](https://greensock.com/gsap), and they are subject to [their own license](http://greensock.com/standard-license).
+Read their license to make sure you are on the safe side on how you use this template.
+
+The code provided in this template is available for usage by all clients of [Adapt Retail](https://adaptretail.com).
