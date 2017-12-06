@@ -61,7 +61,7 @@ export default class SwipeController {
                 swipeData.to.onSwipeTo( swipeData );
                 swipeData.from.onSwipeFrom( swipeData );
 
-                if (this.navigation) {
+                if (this.navigation && this.navigation.container) {
                     this.navigation.update();
                 }
 
