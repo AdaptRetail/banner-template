@@ -24,6 +24,13 @@ export default class SwipeNavigation {
                 this.container,
                 mustache.render( this.navigationItem, { index: i } )
             );
+
+            /**
+             * When clicking on navigation we swipe to that index
+             */
+            this.container.children[i].addEventListener( 'click', function( evt ) {
+                this.controller.slideTo( evt.target.getAttribute( 'data-index' ) );
+            }.bind( this ) );
         }
 
         this.update();
@@ -37,13 +44,5 @@ export default class SwipeNavigation {
         this.container.children[ this.controller.index ].classList.add( 'is-active' );
     }
 
-        /**
-         * When clicking on navigation we swipe to that index
-         */
-        // for (var i = 0, len = navigation.children.length; i < len; i++) {
-            // navigation.children[i].addEventListener( 'click', function( evt ) {
-                // swipeController.slideTo( evt.target.getAttribute( 'data-index' ) );
-            // } );
-        // }
 
 }

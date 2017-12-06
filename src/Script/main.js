@@ -67,6 +67,7 @@ document.addEventListener( "DOMContentLoaded", function(e) {
         // Insert all products to swipe carousel
         swipeController.addFrames( frames );
 
+        // Mount controller and navigation
         swipeController.mount( '#swipe-wrap' );
         swipeNavigation.mount( '#swipe-navigation' );
 
