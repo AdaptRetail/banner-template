@@ -113,8 +113,6 @@ document.addEventListener( "DOMContentLoaded", function(e) {
         } );
 
         // Find element to add all the swipe information in to
-        var swipeWrap = document.querySelector( '.swipe-wrap' );
-
         var navigation = document.querySelector( '.navigation' );
 
 
@@ -146,13 +144,6 @@ document.addEventListener( "DOMContentLoaded", function(e) {
          * Prepare first showin element
          */
         prepareSwipeElementToShow();
-
-        /**
-         * Stop swiping when clicking on banner
-         */
-        swipeWrap.addEventListener( 'click', function() {
-            window.swipe.stop();
-        }, false );
 
         /**
          * When clicking on navigation we swipe to that index
