@@ -6,6 +6,8 @@ export default class SwipeController {
     constructor( options = {} ) {
         options.startIndex = options.startIndex || null;
 
+        this.navigation = null;
+
         this.frames = [];
     }
 
@@ -59,6 +61,10 @@ export default class SwipeController {
                 swipeData.to.onSwipeTo( swipeData );
                 swipeData.from.onSwipeFrom( swipeData );
 
+                if (this.navigation) {
+                    this.navigation.update();
+                }
+
             }.bind( this ),
             speed: 400,
             auto: 4000,
@@ -108,6 +114,19 @@ export default class SwipeController {
         window.setTimeout( function() {
             window.swipe.stop();
         },0 );
+    }
+
+    /**
+     * Add multiple frames at once
+     *
+     * @param frames
+     *
+     * @return void
+     */
+    addFrames( frames = [] ) {
+        for (var i = 0, len = frames.length; i < len; i++) {
+            this.addFrame( frames[i] );
+        }
     }
 
     /**
