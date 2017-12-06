@@ -36,6 +36,13 @@ DOMHandler.insertInHead( HeadTemplate );
 var swipeController = new SwipeController({
     addTo: '#swipe-wrap',
 });
+
+/**
+ * Create the swipe navigation
+ * and connect to the SwipeController
+ *
+ * @return void
+ */
 var swipeNavigation = new SwipeNavigation({
     controller: swipeController,
 });
@@ -61,13 +68,19 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             return new Frame( item );
         } );
 
-        // Find element to add all the swipe information in to
+        /**
+         * Find element to add all the swipe information in to
+         */
         var navigation = document.querySelector( '.navigation' );
 
-        // Insert all products to swipe carousel
+        /*
+         * Insert all frames to swipe carousel
+         */
         swipeController.addFrames( frames );
 
-        // Mount controller and navigation
+        /*
+         * Mount controller and navigation
+         */
         swipeController.mount( '#swipe-wrap' );
         swipeNavigation.mount( '#swipe-navigation' );
 

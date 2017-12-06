@@ -20,23 +20,35 @@ export default class SwipeNavigation {
         this.container = document.querySelector( selector );
 
         for (var i = 0, len = this.controller.frames.length; i < len; i++) {
+
+            /**
+             * Add the navigation item
+             * the the navigation
+             */
             DOMHandler.insertHtml(
                 this.container,
                 mustache.render( this.navigationItem, { index: i } )
             );
 
             /**
-             * When clicking on navigation we swipe to that index
+             * When clicking on navigation
+             * we swipe to that index
              */
             this.container.children[i].addEventListener( 'click', function( evt ) {
                 this.controller.slideTo( evt.target.getAttribute( 'data-index' ) );
             }.bind( this ) );
         }
 
+        // Update once when setting the navigation
         this.update();
 
     }
 
+    /**
+     * Update the .is-active on all elements
+     *
+     * @return void
+     */
     update() {
         for (var i = 0, len = this.container.children.length; i < len; i++) {
             this.container.children[ i ].classList.remove( 'is-active' );

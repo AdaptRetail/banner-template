@@ -7,10 +7,20 @@ export default class Frame {
         this.data = this.format( data );
     }
 
+    /**
+     * Set the content of each frame
+     *
+     * @return string
+     */
     template() {
         return require( '../../views/product.template.html' );
     }
 
+    /**
+     * Format the data provided in constructor
+     *
+     * @return Object
+     */
     format( item ) {
 
         /**
@@ -39,11 +49,20 @@ export default class Frame {
 
     }
 
+    /**
+     * Set an event when we click on the frame.
+     *
+     * @return void
+     */
     onClick() {}
 
     /**
+     * This is called when the frame is swiped to
+     *
      * Set backgroundImage to every element that has data-background-image attribute
      * This is to lazy load images to save load time for banner.
+     *
+     * @return void
      */
     onSwipeTo() {
         var backgroundImageElements = this.template.querySelectorAll( '[data-background-image]' )
@@ -52,8 +71,21 @@ export default class Frame {
             tmp.style.backgroundImage = 'url(' + tmp.getAttribute( 'data-background-image' ) + ')';
         }
     }
+
+
+    /**
+     * This is called when the frame is swiped to
+     *
+     * @return void
+     */
     onSwipeFrom() {}
 
+    /**
+     * Render the template and set the
+     * new template as a DOMElement
+     *
+     * @return DOMElement
+     */
     render() {
         return this.template = DOMHandler.htmlToDOM(
             mustache.render( this.template(), this.data )
