@@ -4,43 +4,20 @@ import DOMHandler from './DOMHandler';
 export default class SwipeController {
 
     constructor( options = {} ) {
-
-        this.onSwipeEventListeners = [];
-
-        options.addTo = options.addTo || 'body';
         options.startIndex = options.startIndex || null;
-        options.index = 0;
 
-        this.parent = document.querySelector( options.addTo );
         this.frames = [];
-
-        var test = DOMHandler.insertHtml(
-            this.parent,
-            this.template()
-        );
-
-        this.swipeWrap = document.querySelector( '.swipe-wrap' );
     }
 
-    start() {
-
-        this.index = this.startIndex || Math.floor(Math.random() * this.frames.length);
-
-        this.createSwipe();
-
-        /**
-         * Stop swiping when clicking on banner
-         */
-        this.swipeWrap.addEventListener( 'click', function() {
-            window.swipe.stop();
-        }, false );
-    }
-
+    /**
+     * Get the template
+     *
+     * @return string
+     */
     template() {
         return `
             <div id="slider" class="swipe">
-                <div class="swipe-wrap">
-                </div>
+                <div class="swipe-wrap"></div>
             </div>
         `;
     }
@@ -50,19 +27,37 @@ export default class SwipeController {
      * 
      * @return void
      */
-    createSwipe() {
+    mount( selector = 'body' ) {
+
+        DOMHandler.insertHtml(
+            document.querySelector( selector ),
+            this.template()
+        );
+
+        this.swipeWrap = document.querySelector( '.swipe-wrap' );
+
+        for (var i = 0, len = this.frames.length; i < len; i++) {
+            this.swipeWrap.appendChild( this.frames[i].render() );
+        }
+
+        this.index = this.startIndex || Math.floor(Math.random() * this.frames.length);
+
+        // Fake a trigger to element on the first frame
+        this.currentFrame().onSwipeTo();
+
         window.swipe = new Swipe(document.getElementById('slider'), {
             callback: function(index, element, direction, isInteraction) {
 
-                console.log(index);
                 this.index = index;
-
-                this.callOnSwipeEventListeners.call( this, {
+                var swipeData = {
                     index,
-                    to: this.elementAt( index ),
-                    from: this.elementAt( this.itemIndexCarousel( index + direction ) ),
+                    to: this.frameAt( index ),
+                    from: this.frameAt( this._itemIndexCarousel( index + direction ) ),
                     isInteraction,
-                } );
+                };
+
+                swipeData.to.onSwipeTo( swipeData );
+                swipeData.from.onSwipeFrom( swipeData );
 
             }.bind( this ),
             speed: 400,
@@ -74,30 +69,6 @@ export default class SwipeController {
         });
     }
 
-    slideTo( index ) {
-        window.swipe.slide( index );
-    }
-
-    stop() {
-        /**
-         * To stop the swipe we must get the swipe instance outside of the context
-         * Therefor we put it in a setTimeout
-         */
-        window.setTimeout( function() {
-            window.swipe.stop();
-        },0 );
-    }
-
-    onSwipe( callback ) {
-        this.onSwipeEventListeners.push( callback );
-    }
-
-    callOnSwipeEventListeners( data ) {
-        for (var i = 0, len = this.onSwipeEventListeners.length; i < len; i++) {
-            this.onSwipeEventListeners[i].call( this, data );
-        }
-    }
-
     /**
      * Calculate the next or previous product index.
      *
@@ -106,7 +77,7 @@ export default class SwipeController {
      *
      * @return Integer
      */
-    itemIndexCarousel( index ) {
+    _itemIndexCarousel( index ) {
         if (index < 0) {
             return this.frames.length -1;
         }
@@ -117,25 +88,53 @@ export default class SwipeController {
     };
 
     /**
-     * Add product to swipe
-     *
-     * @param content
+     * Slide to a spesific frame
      *
      * @return void
      */
-    addElement( content ) {
-        this.frames.push( content );
-        DOMHandler.insertHtml( this.swipeWrap, content );
+    slideTo( index ) {
+        window.swipe.slide( index );
     }
 
-    elementAt( i ) {
-        return this.swipeWrap.children[
-            i
-        ];
+    /**
+     * Stop the swipe library
+     *
+     * To stop the swipe we must get the swipe instance outside of the context
+     * Therefor we put it in a setTimeout
+     *
+     * @return void
+     */
+    stop() {
+        window.setTimeout( function() {
+            window.swipe.stop();
+        },0 );
     }
 
-    currentElement() {
-        return this.elementAt( this.index );
+    /**
+     * Add product to swipe
+     *
+     * @return void
+     */
+    addFrame( frame ) {
+        this.frames.push( frame );
+    }
+
+    /**
+     * Get current frame
+     *
+     * @return Frame
+     */
+    currentFrame() {
+        return this.frameAt( this.index );
+    }
+
+    /**
+     * Get frame at index
+     *
+     * @return Frame
+     */
+    frameAt( index ) {
+        return this.frames[ index ];
     }
 
 }

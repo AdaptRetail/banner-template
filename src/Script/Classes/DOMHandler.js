@@ -1,4 +1,11 @@
 export default class DOMHandler {
+
+    static htmlToDOM( html ) {
+        var div = document.createElement('div');
+        div.innerHTML = html;
+        return div.firstChild;
+    }
+
     static insertHtml(element, html) {
         element.insertAdjacentHTML( 'beforeEnd', html );
     };
