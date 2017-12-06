@@ -2,7 +2,7 @@
 /**
  * Import all external resources
  */
-import Product from './Classes/Product';
+import Frame from './Classes/Frame';
 import DOMHandler from './Classes/DOMHandler';
 import AdaptData from '@adapt-retail/banner-data';
 import SwipeController from './Classes/SwipeController';
@@ -70,8 +70,8 @@ document.addEventListener( "DOMContentLoaded", function(e) {
         items = Object.keys( response.data ).map( function(key) {
             return response.data[key];
         } ).map( function(item) {
-            // Convert each item to a Product instance
-            return new Product( item );
+            // Convert each item to a Frame instance
+            return new Frame( item );
         } );
 
         // Find element to add all the swipe information in to

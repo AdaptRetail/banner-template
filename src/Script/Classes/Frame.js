@@ -1,7 +1,7 @@
 import mustache from 'mustache';
 import DOMHandler from './DOMHandler';
 
-export default class Product {
+export default class Frame {
 
     constructor( data ){
         this.data = this.format( data );
@@ -20,6 +20,7 @@ export default class Product {
         var tmpPrice = item.pricenow.split( /[,\.]/ );
 
         return {
+            name: item.name,
             image: adaptData.asset( item.image ),
             vendorlogo: adaptData.asset( item.vendorlogo ),
             pricematch: item.pricematch === "1",
