@@ -33,9 +33,7 @@ DOMHandler.insertInHead( HeadTemplate );
 /**
  * Create instance of swipe controller
  */
-var swipeController = new SwipeController({
-    addTo: '#swipe-wrap',
-});
+var swipeController = new SwipeController();
 
 /**
  * Create the swipe navigation
