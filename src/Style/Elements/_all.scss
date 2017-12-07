@@ -6,9 +6,9 @@
  */
 
 @import "Container";
-@import "Footer";
 @import "Product";
 @import "Navigation";
+@import "Logo";
 
 // Import the extracted priceco banner
 @import "../../../node_modules/@priceco/style/src/Elements/_all.scss";
