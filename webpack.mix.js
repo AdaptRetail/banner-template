@@ -19,6 +19,14 @@ if (mix.inProduction()) {
     });
 }
 
+/**
+ * Prevent url processing
+ * https://laravel.com/docs/5.5/mix#url-processing
+ */
+mix.options({
+    processCssUrls: false
+});
+
 /*
  * Build script and compile sass
  * Display banner and hot reload
