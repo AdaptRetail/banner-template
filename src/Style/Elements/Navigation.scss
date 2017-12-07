@@ -1,11 +1,11 @@
-$navigation-item-margin: 0 0 .5em 0;
-$navigation-item-padding: .3em;
-$navigation-item-background-color: #000;
-$navigation-item-border-thickness: .1em;
-$navigation-item-border-color: white;
-$navigation-item-opacity: .2;
-$navigation-item-opacity-active: .5;
-$navigation-item-transition-speed: .3s;
+$navigation-item-margin: 0 0 .5em 0 !default;
+$navigation-item-padding: .3em !default;
+$navigation-item-background-color: #000 !default;
+$navigation-item-border-thickness: .1em !default;
+$navigation-item-border-color: white !default;
+$navigation-item-opacity: .2 !default;
+$navigation-item-opacity-active: .5 !default;
+$navigation-item-transition-speed: .3s !default;
 
 .navigation {
     text-align: center;

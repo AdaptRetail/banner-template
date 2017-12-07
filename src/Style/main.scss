@@ -1,16 +1,8 @@
 /*
  * Import everything this banner needs
  */
-
-
-
 @import "./Utilities/_all";
 @import "../../node_modules/@adapt-retail/banner-style/src/main.scss";
 @import "./Mixins/_all";
 @import "./Core/_all";
 @import "./Elements/_all.scss";
-
-/**
- * Include the banner grid
- */
-@include banner-grid;
