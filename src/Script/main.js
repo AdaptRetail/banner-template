@@ -61,7 +61,12 @@ document.addEventListener( "DOMContentLoaded", function(e) {
          */
         var slides = Object.keys( response.data ).map( function(key) {
             return response.data[key];
-        } ).map( function(item) {
+        } );
+        
+        /**
+         * Convert array elements to Slide instances
+         */
+        slides = slides.map( function(item) {
             // Convert each item to a Slide instance
             return new Slide( item );
         } );
