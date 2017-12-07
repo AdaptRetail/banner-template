@@ -30,6 +30,7 @@ export default class Slide {
         var tmpPrice = item.pricenow.split( /[,\.]/ );
 
         return {
+            id: item.id,
             name: item.name,
             image: adaptData.asset( item.image ),
             vendorlogo: adaptData.asset( item.vendorlogo ),
@@ -54,7 +55,10 @@ export default class Slide {
      *
      * @return void
      */
-    onClick() {}
+    onClick() {
+        //dhtml.sendEvent(this.data.id, 'goUrl');
+        //event('goUrl',this.data.id);
+    }
 
     /**
      * This is called when the slide is swiped to
@@ -78,7 +82,14 @@ export default class Slide {
      *
      * @return void
      */
-    onSwipeFrom() {}
+    onSwipeFrom( data ) {
+
+        if (data.isInteraction) {
+            //dhtml.sendEvent(this.data.id, 'Next');
+            //event('Next',this.data.id);
+        }
+
+    }
 
     /**
      * Render the template and set the
