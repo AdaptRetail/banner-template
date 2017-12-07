@@ -2,6 +2,7 @@ $product-padding: 2em !default;
 $product-name-font-size: 1.3em !default;
 $product-vendor-height-aspect: 11% !default;
 $product-vendor-spacing: .6em !default;
+$product-center-on-page: true !default;
 
 /*
  * This file is handling the style of each products in the swipe menu
@@ -13,6 +14,20 @@ $product-vendor-spacing: .6em !default;
 
     // You need to set height to make children also fill height
     height: 100%;
+
+
+    /**
+     * Vertical product on page
+     * if banner gets too high
+     */
+    @media (max-aspect-ratio: 1/1) {
+        @if $product-center-on-page {
+            // max-height: 500px;
+            max-height: 40em;
+            align-self: center;
+        }
+    }
+
 }
 
 .product-image {
