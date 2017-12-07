@@ -87,9 +87,13 @@ export default class Slide {
      * @return DOMElement
      */
     render() {
-        return this.template = DOMHandler.htmlToDOM(
+        this.template = DOMHandler.htmlToDOM(
             mustache.render( this.template(), this.data )
         );
+
+        this.template.addEventListener( 'click', this.onClick.bind(this), false );
+
+        return this.template;
     }
 
 }
