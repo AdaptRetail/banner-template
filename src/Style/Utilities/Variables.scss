@@ -7,43 +7,38 @@
  * Core
  */
 
-/* Typography */
-// $font-size: 3.5vw !default;
-// $font-color: black !default;
-// $google-font-name: "Roboto" !default;
-// $font-family: $google-font-name, sans-serif !default;
+// Core/Typography.scss
+$font-size: 3.5vw !default;
+$font-color: black !default;
+$google-font-name: "Roboto" !default;
+$font-family: $google-font-name, sans-serif !default;
 
 
 /**
  * Elements
  */
 
-/* Container.scss */
-// $banner-background: transparent !default;
-$banner-background: $priceco-blue-gradient !default;
+// Elements/Container.scss
+$banner-background: $priceco-blue-gradient !default; // transparent
 
+// Elements/Logo.scss
+$logo: $priceco-logo !default; // inline-image( "assets/logo.svg" )
+$logo-aspect: 37% !default;
+$logo-margin: 2em auto 0 !default;
+$logo-width: 55% !default;
 
-/* Logo.scss */
-// $logo: inline-image( "assets/logo.svg" ) !default;
-$logo: $priceco-logo !default;
-// $logo-aspect: 37% !default;
-// $logo-margin: 2em auto 0 !default;
-// $logo-width: 55% !default;
+// Elements/Navigation.scss
+$navigation-item-margin: 0 0 .5em 0 !default;
+$navigation-item-padding: .3em !default;
+$navigation-item-background-color: #000 !default;
+$navigation-item-border-thickness: .1em !default;
+$navigation-item-border-color: white !default;
+$navigation-item-opacity: .2 !default;
+$navigation-item-opacity-active: .5 !default;
+$navigation-item-transition-speed: .3s !default;
 
-
-/* Navigation */
-// $navigation-item-margin: 0 0 .5em 0 !default;
-// $navigation-item-padding: .3em !default;
-// $navigation-item-background-color: #000 !default;
-// $navigation-item-border-thickness: .1em !default;
-// $navigation-item-border-color: white !default;
-// $navigation-item-opacity: .2 !default;
-// $navigation-item-opacity-active: .5 !default;
-// $navigation-item-transition-speed: .3s !default;
-
-
-/* Product */
-// $product-padding: 2em !default;
-// $product-name-font-size: 1.3em !default;
-// $product-vendor-height-aspect: 11% !default;
-// $product-vendor-spacing: .6em !default;
+// Elements/Product.scss
+$product-padding: 2em !default;
+$product-name-font-size: 1.3em !default;
+$product-vendor-height-aspect: 11% !default;
+$product-vendor-spacing: .6em !default;
