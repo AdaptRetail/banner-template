@@ -9,6 +9,7 @@ export default class SwipeController {
         this.navigation = null;
 
         this.frames = [];
+        this.swipe = null;
     }
 
     /**
@@ -47,7 +48,7 @@ export default class SwipeController {
         // Fake a trigger to element on the first frame
         this.currentFrame().onSwipeTo();
 
-        window.swipe = new Swipe(document.getElementById('slider'), {
+        this.swipe = new Swipe(document.getElementById('slider'), {
             callback: function(index, element, direction, isInteraction) {
 
                 this.index = index;
@@ -99,7 +100,25 @@ export default class SwipeController {
      * @return void
      */
     slideTo( index ) {
-        window.swipe.slide( index );
+        this.swipe.slide( index );
+    }
+
+    /**
+     * Swipe to next slide
+     *
+     * @return void
+     */
+    next() {
+        this.swipe.next();
+    }
+
+    /**
+     * Swipe to previous slide
+     *
+     * @return void
+     */
+    prev() {
+        this.swipe.prev();
     }
 
     /**
@@ -112,7 +131,7 @@ export default class SwipeController {
      */
     stop() {
         window.setTimeout( function() {
-            window.swipe.stop();
+            this.swipe.stop();
         },0 );
     }
 
