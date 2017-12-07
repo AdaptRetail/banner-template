@@ -66,11 +66,6 @@ document.addEventListener( "DOMContentLoaded", function(e) {
             return new Frame( item );
         } );
 
-        /**
-         * Find element to add all the swipe information in to
-         */
-        var navigation = document.querySelector( '.navigation' );
-
         /*
          * Insert all frames to swipe carousel
          */
