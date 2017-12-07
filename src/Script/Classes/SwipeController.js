@@ -30,12 +30,17 @@ export default class SwipeController {
      * 
      * @return void
      */
-    mount( selector = 'body' ) {
+    mount( mountTo = 'body' ) {
+
+        if ( ! ( mountTo instanceof HTMLElement ) ) {
+            mountTo = document.querySelector( mountTo );
+        }
 
         DOMHandler.insertHtml(
-            document.querySelector( selector ),
+            mountTo,
             this.template()
         );
+
 
         this.swipeWrap = document.querySelector( '.swipe-wrap' );
 

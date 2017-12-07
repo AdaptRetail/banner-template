@@ -15,9 +15,11 @@ export default class SwipeNavigation {
      *
      * @return void
      */
-    mount( selector = '#swipe-navigation' ) {
+    mount( mountTo = '#swipe-navigation' ) {
 
-        this.container = document.querySelector( selector );
+        this.container = mountTo instanceof HTMLElement
+            ? mountTo
+            : document.querySelector( mountTo );
 
         for (var i = 0, len = this.controller.frames.length; i < len; i++) {
 
