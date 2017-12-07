@@ -8,7 +8,7 @@ export default class SwipeController {
 
         this.navigation = null;
 
-        this.frames = [];
+        this.slides = [];
         this.swipe = null;
     }
 
@@ -44,14 +44,14 @@ export default class SwipeController {
 
         this.swipeWrap = document.querySelector( '.swipe-wrap' );
 
-        for (var i = 0, len = this.frames.length; i < len; i++) {
-            this.swipeWrap.appendChild( this.frames[i].render() );
+        for (var i = 0, len = this.slides.length; i < len; i++) {
+            this.swipeWrap.appendChild( this.slides[i].render() );
         }
 
-        this.index = this.startIndex || Math.floor(Math.random() * this.frames.length);
+        this.index = this.startIndex || Math.floor(Math.random() * this.slides.length);
 
-        // Fake a trigger to element on the first frame
-        this.currentFrame().onSwipeTo();
+        // Fake a trigger to element on the first slide
+        this.currentSlide().onSwipeTo();
 
         this.swipe = new Swipe(document.getElementById('slider'), {
             callback: function(index, element, direction, isInteraction) {
@@ -59,8 +59,8 @@ export default class SwipeController {
                 this.index = index;
                 var swipeData = {
                     index,
-                    to: this.frameAt( index ),
-                    from: this.frameAt( this._itemIndexCarousel( index + direction ) ),
+                    to: this.slideAt( index ),
+                    from: this.slideAt( this._itemIndexCarousel( index + direction ) ),
                     isInteraction,
                 };
 
@@ -91,16 +91,16 @@ export default class SwipeController {
      */
     _itemIndexCarousel( index ) {
         if (index < 0) {
-            return this.frames.length -1;
+            return this.slides.length -1;
         }
-        else if (index >= this.frames.length) {
+        else if (index >= this.slides.length) {
             return 0;
         }
         return index;
     };
 
     /**
-     * Slide to a spesific frame
+     * Slide to a spesific slide
      *
      * @return void
      */
@@ -141,15 +141,15 @@ export default class SwipeController {
     }
 
     /**
-     * Add multiple frames at once
+     * Add multiple slides at once
      *
-     * @param frames
+     * @param slides
      *
      * @return void
      */
-    addFrames( frames = [] ) {
-        for (var i = 0, len = frames.length; i < len; i++) {
-            this.addFrame( frames[i] );
+    addSlides( slides = [] ) {
+        for (var i = 0, len = slides.length; i < len; i++) {
+            this.addSlide( slides[i] );
         }
     }
 
@@ -158,26 +158,26 @@ export default class SwipeController {
      *
      * @return void
      */
-    addFrame( frame ) {
-        this.frames.push( frame );
+    addSlide( slide ) {
+        this.slides.push( slide );
     }
 
     /**
-     * Get current frame
+     * Get current slide
      *
-     * @return Frame
+     * @return Slide
      */
-    currentFrame() {
-        return this.frameAt( this.index );
+    currentSlide() {
+        return this.slideAt( this.index );
     }
 
     /**
-     * Get frame at index
+     * Get slide at index
      *
-     * @return Frame
+     * @return Slide
      */
-    frameAt( index ) {
-        return this.frames[ index ];
+    slideAt( index ) {
+        return this.slides[ index ];
     }
 
 }

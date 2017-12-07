@@ -21,7 +21,7 @@ export default class SwipeNavigation {
             ? mountTo
             : document.querySelector( mountTo );
 
-        for (var i = 0, len = this.controller.frames.length; i < len; i++) {
+        for (var i = 0, len = this.controller.slides.length; i < len; i++) {
 
             /**
              * Add the navigation item

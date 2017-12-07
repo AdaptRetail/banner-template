@@ -1,14 +1,14 @@
 import mustache from 'mustache';
 import DOMHandler from './DOMHandler';
 
-export default class Frame {
+export default class Slide {
 
     constructor( data ){
         this.data = this.format( data );
     }
 
     /**
-     * Set the content of each frame
+     * Set the content of each slide
      *
      * @return string
      */
@@ -50,14 +50,14 @@ export default class Frame {
     }
 
     /**
-     * Set an event when we click on the frame.
+     * Set an event when we click on the slide.
      *
      * @return void
      */
     onClick() {}
 
     /**
-     * This is called when the frame is swiped to
+     * This is called when the slide is swiped to
      *
      * Set backgroundImage to every element that has data-background-image attribute
      * This is to lazy load images to save load time for banner.
@@ -74,7 +74,7 @@ export default class Frame {
 
 
     /**
-     * This is called when the frame is swiped to
+     * This is called when the slide is swiped to
      *
      * @return void
      */

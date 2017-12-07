@@ -2,7 +2,7 @@
 /**
  * Import all external resources
  */
-import Frame from './Classes/Frame';
+import Slide from './Classes/Slide';
 import DOMHandler from './Classes/DOMHandler';
 import AdaptData from '@adapt-retail/banner-data';
 import SwipeController from './Classes/SwipeController';
@@ -59,17 +59,17 @@ document.addEventListener( "DOMContentLoaded", function(e) {
         /**
          * Convert Adapt response data to an array
          */
-        var frames = Object.keys( response.data ).map( function(key) {
+        var slides = Object.keys( response.data ).map( function(key) {
             return response.data[key];
         } ).map( function(item) {
-            // Convert each item to a Frame instance
-            return new Frame( item );
+            // Convert each item to a Slide instance
+            return new Slide( item );
         } );
 
         /*
-         * Insert all frames to swipe carousel
+         * Insert all slides to swipe carousel
          */
-        swipeController.addFrames( frames );
+        swipeController.addSlides( slides );
 
         /*
          * Mount controller and navigation
