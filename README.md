@@ -4,6 +4,7 @@
 ![Demo of banner template](assets/banner_preview.gif)
 
 ## Table of content
+- [Whats included](#whats-included)
 - [Install](#install)
 - [Usage](#usage)
     - [Local development](#npm-run-watch)
@@ -14,7 +15,18 @@
 - [Publish to Adapt Retail](#publish)
 - [License](#license)
 
+<a name="whats-included"></a>
+## Whats included
 
+This template is using multiple best practices principles for Adapt Retail banners.
+You do not have to follow them, so change whatever you want.
+
+Anyways,
+we are including ability to **swipe between product swiper** on touch devices and desktops,
+and we **stop the carousel on user interaction**.
+The banner is **lazy loading product images** when the product shows. 
+We have included examples of how to **handle product bombs**,
+and an example of how to handle a **splitted price tag**.
 
 <a name="install"></a>
 ## Install
