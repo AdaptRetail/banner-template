@@ -1,36 +1,34 @@
-<div>
-    <div class="product">
+<div class="product">
 
-        <div class="grid is-vertical">
-            <div class="column is-filled">
-                <div>
-                    <!-- To save load speed we are lazy loading images.  -->
-                    <!-- This means we are adding the background image later in javascript -->
-                    <div class="product-image" data-background-image="{{ image }}"></div>
-
-                    {{#pricematch}}
-                        <div class="bomb is-pricematch"></div>
-                    {{/pricematch}}
-                    {{#threefortwo}}
-                        <div class="bomb is-threefortwo"></div>
-                    {{/threefortwo}}
-
-                    <div class="price">
-                        <div class="price__number price__integer">{{ price.integer }}</div><div class="price__number price__decimal">{{ price.decimal }}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="column is-narrow">
-
+    <div class="grid is-vertical">
+        <div class="column is-filled">
+            <div>
                 <!-- To save load speed we are lazy loading images.  -->
                 <!-- This means we are adding the background image later in javascript -->
-                <div class="vendor-logo image" data-background-image="{{ vendorlogo }}"></div>
+                <div class="product-image" data-background-image="{{ image }}"></div>
 
-                <div class="name">{{ name }}</div>
-                <div class="description">{{ description }}</div>
-                <div class="price__save">Was <span>{{ pricebefore }}</span></div>
+                {{#pricematch}}
+                    <div class="bomb is-pricematch"></div>
+                {{/pricematch}}
+                {{#threefortwo}}
+                    <div class="bomb is-threefortwo"></div>
+                {{/threefortwo}}
+
+                <div class="price">
+                    <div class="price__number price__integer">{{ price.integer }}</div><div class="price__number price__decimal">{{ price.decimal }}</div>
+                </div>
             </div>
         </div>
+        <div class="column is-narrow">
 
+            <!-- To save load speed we are lazy loading images.  -->
+            <!-- This means we are adding the background image later in javascript -->
+            <div class="vendor-logo image" data-background-image="{{ vendorlogo }}"></div>
+
+            <div class="name">{{ name }}</div>
+            <div class="description">{{ description }}</div>
+            <div class="price__save">Was <span>{{ pricebefore }}</span></div>
+        </div>
     </div>
+
 </div>
