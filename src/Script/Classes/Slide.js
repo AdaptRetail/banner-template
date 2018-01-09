@@ -29,6 +29,8 @@ export default class Slide {
          */
         var tmpPrice = item.pricenow.split( /[,\.]/ );
 
+        console.log(item);
+
         return {
             id: item.id,
             name: item.name,
@@ -40,6 +42,7 @@ export default class Slide {
             price: {
                 integer: tmpPrice[0],
                 decimal: tmpPrice.length >= 2 ? tmpPrice[1] : '00',
+                before: item.pricebefore,
             },
 
             /**
