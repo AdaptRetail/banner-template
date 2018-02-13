@@ -2,10 +2,16 @@
  * Import everything this banner needs
  */
 
-// Import banner style micro framework
+/**
+ * Import micro frontend framework for building templates
+ * https://github.com/AdaptRetail/banner-style
+ */
 @import "../../node_modules/@adapt-retail/banner-style/src/main.scss";
 
-// Import the extracted priceco style
+/**
+ * Import extracted priceco style
+ * https://github.com/AdaptRetail/priceco-style
+ */
 @import "../../node_modules/@priceco/style/src/main.scss";
 
 @import "./Utilities/_all";
