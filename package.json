@@ -13,7 +13,7 @@
     "browser-sync-webpack-plugin": "^1.2.0",
     "gsap": "^1.19.1",
     "mustache": "^2.3.0",
-    "swipejs": "https://github.com/LasseHaslev/swipe.git"
+    "swipejs": "git+https://github.com/LasseHaslev/swipe.git"
   },
   "devDependencies": {
     "@adapt-retail/adapt-mix-extender": "^0.0.1",
