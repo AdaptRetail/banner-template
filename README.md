@@ -175,6 +175,8 @@ This is to reuse the elements and components in other productions.
 
 This is a recommendation if you are creating multiple templates for [Adapt Retail](https://adaptretail.com).
 
+> Remove the priceco style from the project by removing `@import "../../node_modules/@priceco/style/src/main.scss";` line in `src/Style/main.scss`.
+
 <a name="publish"></a>
 ## Publishing to [Adapt Retail](https://adaptretail.com)
 

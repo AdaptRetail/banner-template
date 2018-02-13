@@ -1,7 +1,13 @@
 /*
  * Import everything this banner needs
  */
-@import "./Utilities/_all";
+
+// Import banner style micro framework
 @import "../../node_modules/@adapt-retail/banner-style/src/main.scss";
+
+// Import the extracted priceco style
+@import "../../node_modules/@priceco/style/src/main.scss";
+
+@import "./Utilities/_all";
 @import "./Core/_all";
 @import "./Elements/_all.scss";
