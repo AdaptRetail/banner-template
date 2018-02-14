@@ -24,6 +24,7 @@ window.adaptData = new AdaptData( {
     project: 1,
     campaign: 1,
     production: 1,
+    preview: false, // Should we use preview data from Adapt
 } );
 
 // Add container
