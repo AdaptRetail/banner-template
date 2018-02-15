@@ -48,7 +48,7 @@ export default class Slide {
             /**
              * Set the url to google analytics if url does not exists
              */
-            url: item.url || 'https://google.com' + response.details.ga_url + '&utm_content=' + item.id,
+            url: item.url || 'https://google.com' + adaptData.data.details.ga_url + '&utm_content=' + item.id,
         }
 
     }
