@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@adapt-retail/adapt-mix-extender": "^0.0.1",
-    "@adapt-retail/banner-data": "^0.1.0",
+    "@adapt-retail/banner-data": "^0.2.0",
     "@adapt-retail/banner-style": "^1.0.0"
   }
 }
