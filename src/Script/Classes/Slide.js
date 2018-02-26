@@ -1,5 +1,6 @@
 import mustache from 'mustache';
 import DOMHandler from './DOMHandler';
+import AdaptEvent from '@adapt-retail/adapt-event';
 
 export default class Slide {
 
@@ -60,7 +61,10 @@ export default class Slide {
      */
     onClick() {
         //dhtml.sendEvent(this.data.id, 'goUrl');
-        //event('goUrl',this.data.id);
+
+        // This click is automaticly tracked
+        // ( See line in `render()` function )
+        console.log('product click');
     }
 
     /**
@@ -88,8 +92,10 @@ export default class Slide {
     onSwipeFrom( data ) {
 
         if (data.isInteraction) {
-            //dhtml.sendEvent(this.data.id, 'Next');
-            //event('Next',this.data.id);
+            var direction = data.direction == 'left' ? 'Previous' : 'Next';
+
+            //dhtml.sendEvent(this.data.id, direction);
+            AdaptEvent.dispatch( direction, this.data.id );
         }
 
     }
@@ -105,7 +111,7 @@ export default class Slide {
             mustache.render( this.template(), this.data )
         );
 
-        this.template.addEventListener( 'click', this.onClick.bind(this), false );
+        this.template.adaptClick( this.onClick, 'product-click', this.data.id );
 
         return this.template;
     }

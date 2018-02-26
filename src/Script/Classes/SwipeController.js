@@ -59,6 +59,7 @@ export default class SwipeController {
                 this.index = index;
                 var swipeData = {
                     index,
+                    direction: direction < 0 ? 'right' : 'left',
                     to: this.slideAt( index ),
                     from: this.slideAt( this._itemIndexCarousel( index + direction ) ),
                     isInteraction,
