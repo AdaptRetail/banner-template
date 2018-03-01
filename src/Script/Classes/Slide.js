@@ -59,12 +59,10 @@ export default class Slide {
      *
      * @return void
      */
-    onClick() {
-        //dhtml.sendEvent(this.data.id, 'goUrl');
+    onClick( event ) {
 
-        // This click is automaticly tracked
-        // ( See line in `render()` function )
-        console.log('product click');
+        AdaptEvent.navigate( 'https://adaptretail.com?priceco-product=' + this.data.id, 'product-click', this.data.id, event );
+
     }
 
     /**
@@ -111,7 +109,7 @@ export default class Slide {
             mustache.render( this.template(), this.data )
         );
 
-        this.template.adaptClick( this.onClick, 'product-click', this.data.id );
+        this.template.addEventListener( 'click', this.onClick.bind( this ), false );
 
         return this.template;
     }

@@ -26,7 +26,8 @@ we are including ability to **swipe between product swiper** on touch devices an
 and we **stop the carousel on user interaction**.
 The banner is **lazy loading product images** when the product shows. 
 We have included examples of how to **handle product bombs**,
-and an example of how to handle a **splitted price tag**.
+example of how to handle a **splitted price tag**,
+and thanks to [Laravel mix](https://laravel.com/docs/5.6/mix), **we automaticly adds legacy support**.
 
 <a name="install"></a>
 ## Install

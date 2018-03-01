@@ -7,11 +7,12 @@ import DOMHandler from './Classes/DOMHandler';
 import AdaptData from '@adapt-retail/banner-data';
 import SwipeController from './Classes/SwipeController';
 import SwipeNavigation from './Classes/SwipeNavigation';
-import { AdaptEvent, AdaptClickEvent } from '@adapt-retail/adapt-event';
+import { AdaptEvent, AdaptClickEvent, AdaptGoogleAnalythics } from '@adapt-retail/adapt-event';
 
 // Extend the functionality of the Adapt Event
 // to include element.adaptCLick function.
 AdaptEvent.addPlugin( new AdaptClickEvent );
+AdaptEvent.addPlugin( new AdaptGoogleAnalythics );
 
 /**
  * Import all html templates
@@ -91,9 +92,7 @@ document.addEventListener( "DOMContentLoaded", function(e) {
         /*
          * Add click event on logo
          */
-        document.querySelector('.logo').adaptClick( function( event ) {
-            console.log('Click on logo!');
-        }, 'click', 'logo' );
+        document.querySelector('.logo').adaptClickAndNavigate( 'https://adaptretail.com' );
 
 
     } );
